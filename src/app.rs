@@ -71,6 +71,7 @@ pub fn App() -> impl IntoView {
 }
 
 #[component]
+
 fn Header() -> impl IntoView {
     view! {
       <header>
@@ -220,7 +221,10 @@ pub fn AboutPage() -> impl IntoView {
     view! {
         <main>
             <section class="about-promo"> // Używamy istniejącej klasy z HomePage dla spójności
-                <h2>O Nas - Meg Joni</h2>
+            <div class="container">
+                <h2>O Nas - </h2>
+                <img src="megjoni-big.png"/>
+            </div>
                 <p>
                     Witaj w Meg Joni! Jestem pasjonatami mody z drugiej ręki, wierzymy, że ubrania
                     zasługują na drugie życie. Nasz sklep to miejsce, gdzie znajdziesz unikalne

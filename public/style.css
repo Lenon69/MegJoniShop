@@ -420,6 +420,10 @@ main h2 {
 }
 
 /* Sekcja "Dlaczego Second Hand" */
+.container {
+  display: flex;
+}
+
 .about-promo {
   background-color: var(--color-surface);
   padding: var(--space-md); /* Zmniejszony padding */
