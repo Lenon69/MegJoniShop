@@ -1,8 +1,8 @@
 use leptos::prelude::*;
-use leptos_meta::{provide_meta_context, MetaTags, Stylesheet, Title};
+use leptos_meta::{MetaTags, Stylesheet, Title, provide_meta_context};
 use leptos_router::{
-    components::{Route, Router, Routes},
     StaticSegment,
+    components::{Route, Router, Routes},
 };
 
 pub fn shell(options: LeptosOptions) -> impl IntoView {
@@ -58,8 +58,8 @@ pub fn App() -> impl IntoView {
                     <Route path=StaticSegment("") view=HomePage/>
                     <Route path=StaticSegment("about") view=AboutPage/>
                     <Route path=StaticSegment("contact") view=ContactPage/>
-                    <Route path=StaticSegment("category/damska") view=WomansPage/>
-                    <Route path=StaticSegment("category/meska") view=MensPage/>
+                    <Route path=StaticSegment("category/woman") view=WomanPage/>
+                    <Route path=StaticSegment("category/man") view=MenPage/>
                     <Route path=StaticSegment("new-arrivals") view=NewsPage/>
                     <Route path=StaticSegment("sale") view=WyprzedazPage/>
                 </Routes>
@@ -119,8 +119,8 @@ fn Navbar() -> impl IntoView {
     <nav>
         <ul>
         <li><a href="/">Strona Główna</a></li>
-        <li><a href="/category/damska">Damska</a></li>
-        <li><a href="/category/meska">Męska</a></li>
+        <li><a href="/category/woman">Damska</a></li>
+        <li><a href="/category/man">Męska</a></li>
         <li><a href="/new-arrivals">Nowości</a></li>
         <li><a href="/sale">Wyprzedaż</a></li>
         <li><a href="/about">O Nas</a></li>

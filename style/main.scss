@@ -1,5 +1,5 @@
-/* style.css 
-   Profesjonalne style dla sklepu z odzieżą używaną 
+/* style.css
+    Profesjonalne style dla sklepu z odzieżą używaną
 */
 
 /* --- Podstawowy Reset i Zmienne CSS --- */
@@ -24,7 +24,7 @@
   --color-error: #e74c3c; /* Kolor błędów */
 
   --nav-padding-vertical: 6px;
-  --nav-padding-horizontal: 16px;
+  --nav-padding-horizontal: 10px; /* Zmniejszone poziome padding dla nawigacji na małych ekranach */
 
   /* Typography */
   --font-family-base:
@@ -34,11 +34,11 @@
   --line-height-base: 1.6;
 
   /* Spacing (użyj skali dla spójności) */
-  --space-xs: 8px;
-  --space-sm: 16px;
-  --space-md: 24px;
-  --space-lg: 32px;
-  --space-xl: 48px;
+  --space-xs: 6px; /* Lekko zmniejszone najmniejsze odstępy */
+  --space-sm: 12px; /* Lekko zmniejszone małe odstępy */
+  --space-md: 18px; /* Zmniejszone średnie odstępy */
+  --space-lg: 24px; /* Zmniejszone duże odstępy */
+  --space-xl: 32px; /* Zmniejszone bardzo duże odstępy */
 }
 
 body {
@@ -47,7 +47,7 @@ body {
   line-height: var(--line-height-base);
   color: var(--color-text);
   background-color: var(--color-background);
-  padding-top: 80px; /* Odpowiada wysokości nagłówka, aby treść nie chowała się pod nim */
+  padding-top: 70px; /* Dostosuj padding-top do potencjalnie niższej wysokości nagłówka na małych ekranach */
 }
 
 /* --- Udogodnienia Dostepności --- */
@@ -78,7 +78,7 @@ a:focus {
 button,
 .btn {
   display: inline-block;
-  padding: var(--space-sm) var(--space-md);
+  padding: var(--space-sm) var(--space-md); /* Używamy nowych, mniejszych zmiennych */
   font-size: var(--font-size-base);
   font-weight: bold;
   text-align: center;
@@ -113,11 +113,12 @@ header {
   width: 100%;
   background-color: var(--color-surface);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 8px 0;
+  padding: 8px var(--space-sm); /* Dodany poziomy padding dla małych ekranów */
   display: flex; /* Używamy flexbox do rozmieszczenia elementów */
   justify-content: space-between; /* Rozsuwa elementy na boki */
   align-items: center; /* Centruje elementy w pionie */
   z-index: 1000; /* Upewnia się, że nagłówek jest na wierzchu */
+  /* Możesz rozważyć flex-wrap: wrap; jeśli elementy nagłówka się nie mieszczą */
 }
 
 header > div {
@@ -135,31 +136,24 @@ header a:hover {
   text-decoration: none;
 }
 
-header img {
-  display: block;
-  margin-right: var(--space-sm);
-}
-
-header h1 {
-  font-size: 1.5em; /* Większy rozmiar dla tytułu/logo */
-  font-weight: bold;
+.logo-title img {
+  /* Dostosuj rozmiar logo na małych ekranach, jeśli domyślne 80x50px jest za duże */
+  width: 60px;
+  height: auto; /* Zachowaj proporcje */
+  margin-right: var(--space-xs); /* Mniejszy margines */
 }
 
 .logo-title a {
   display: flex;
   align-items: center;
-  text-decoration: none; /* jeśli chcesz, żeby <a> nie miało podkreślenia */
-  gap: 0.5rem; /* odstęp między logo a napisem */
-}
-
-.logo-title img {
-  display: block; /* usunięcie dolnego marginesu domyślnego inline obrazka */
+  text-decoration: none;
+  gap: var(--space-xs); /* Mniejszy odstęp między logo a napisem */
 }
 
 /* Wyszukiwarka w nagłówku */
 .search-bar {
   flex-grow: 1; /* Pozwala wyszukiwarce zająć dostępną przestrzeń */
-  margin: 0 var(--space-md);
+  margin: 0 var(--space-sm); /* Zmniejszone poziome marginesy */
   max-width: 400px; /* Ogranicz maksymalną szerokość */
 }
 
@@ -172,18 +166,19 @@ header h1 {
 
 .search-bar input[type="text"] {
   flex-grow: 1;
-  padding: var(--space-xs) var(--space-sm);
+  padding: var(--space-xs) var(--space-sm); /* Zmniejszone paddingi w input */
   border: none;
   outline: none;
   font-size: var(--font-size-base);
 }
 
 .search-bar button {
-  padding: var(--space-xs) var(--space-sm);
+  padding: var(--space-xs) var(--space-sm); /* Zmniejszone paddingi w przycisku */
   background-color: var(--color-primary-dark);
   color: var(--color-surface);
   border: none;
   cursor: pointer;
+  /* Możesz dodać min-width: żeby przycisk nie był za wąski */
 }
 
 .search-bar button:hover {
@@ -197,56 +192,69 @@ header h1 {
 }
 
 .user-cart-icons a {
-  margin-left: var(--space-md);
+  margin-left: var(--space-sm); /* Zmniejszony margines między ikonami */
   position: relative; /* Dla pozycjonowania licznika koszyka */
-  /* Styl ikon SVG/FontAwesome - dostosuj w zależności od użytych ikon */
-  font-size: 1.4em;
+  font-size: 1.2em; /* Lekko zmniejszony rozmiar ikon, jeśli 1.4em za duże */
+}
+
+.user-cart-icons img {
+  /* Dopasuj rozmiar ikon SVG, jeśli używasz img zamiast font-size */
+  width: 28px;
+  height: 28px;
+  margin-right: 0; /* Usuń domyślny margin-right z img w header > div */
 }
 
 .user-cart-icons .cart-count {
   position: absolute;
-  top: -8px;
-  right: -8px;
+  top: -6px; /* Dostosuj pozycję */
+  right: -6px; /* Dostosuj pozycję */
   background-color: var(--color-error); /* Czerwone kółko */
   color: var(--color-surface);
-  font-size: 0.7em;
+  font-size: 0.6em; /* Zmniejszona czcionka */
   font-weight: bold;
   border-radius: 50%;
-  padding: 2px 6px;
-  min-width: 20px;
+  padding: 1px 4px; /* Zmniejszone paddingi */
+  min-width: 16px; /* Mniejsza minimalna szerokość */
   text-align: center;
   line-height: 1;
-  border: 1px solid var(--color-surface); /* Biała ramka */
+  border: 1px solid var(--color-surface);
 }
 
 /* --- Nawigacja Główna --- */
 nav {
   background-color: var(--color-surface);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md); /* Zmniejszony margines dolny */
 }
 
 nav ul {
   list-style: none;
-  display: flex; /* Elementy menu w rzędzie */
-  justify-content: center; /* Centruje elementy menu */
-  padding: var(--nav-padding-vertical) var(--nav-padding-horizontal);
-  flex-wrap: wrap; /* Pozwala menu zawijać się na mniejszych ekranach */
+  display: flex;
+  justify-content: center;
+  padding: var(--nav-padding-vertical) var(--space-sm); /* Dodany/dostosowany poziomy padding */
+  flex-wrap: wrap;
 }
 
 nav li {
-  margin: 0 var(--space-sm);
+  margin: 0 var(--space-xs); /* Zmniejszone marginesy między elementami menu */
+  /* Jeśli elementy menu nadal się nie mieszczą i zawijają się w brzydki sposób,
+     możesz dodać margines na dole po zawinięciu */
+  margin-bottom: var(
+    --space-xs
+  ); /* Dodaj odstęp na dole, jeśli element zawinął się */
 }
 
 nav a {
   color: var(--color-text-light);
   font-weight: bold;
   text-transform: uppercase;
-  padding: var(--nav-padding-vertical) 0;
-  border-bottom: 2px solid transparent; /* Podkreślenie w hoverze */
+  padding: var(--nav-padding-vertical) var(--space-xs); /* Dodaj lekki padding wewnątrz linków */
+  border-bottom: 2px solid transparent;
   transition:
     color 0.3s ease,
     border-bottom-color 0.3s ease;
+  /* Użyj display: block; jeśli chcesz, żeby cały obszar li był klikalny */
+  display: block;
 }
 
 nav a:hover,
@@ -258,13 +266,13 @@ nav a:focus {
 
 /* --- Główna Zawartość --- */
 main {
-  padding: 0 var(--space-md); /* Wewnętrzny odstęp po bokach */
-  max-width: 1200px; /* Ograniczenie szerokości treści */
-  margin: var(--space-md) auto; /* Centrowanie kontenera main */
+  padding: 0 var(--space-sm); /* Zmniejszony poziomy padding */
+  max-width: 1200px;
+  margin: var(--space-md) auto; /* Używamy nowych, mniejszych zmiennych */
 }
 
 main h2 {
-  font-size: 2em;
+  font-size: 1.8em; /* Lekko zmniejszony rozmiar nagłówków sekcji */
   margin-bottom: var(--space-md);
   text-align: center;
   color: var(--color-text);
@@ -274,16 +282,16 @@ main h2 {
 .hero-section {
   position: relative;
   width: 100%;
-  height: 400px; /* Dostosuj wysokość */
+  height: 300px; /* Zmniejszona wysokość sekcji Hero dla małych ekranów */
   overflow: hidden;
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-lg); /* Używamy nowej, mniejszej zmiennej */
   border-radius: 8px;
 }
 
 .hero-image {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Obrazek pokrywa cały kontener */
+  object-fit: cover;
   display: block;
 }
 
@@ -298,38 +306,41 @@ main h2 {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.4); /* Lekkie overlay */
+  background-color: rgba(0, 0, 0, 0.4);
   color: var(--color-surface);
-  padding: var(--space-md);
+  padding: var(--space-md); /* Zmniejszony padding wewnętrzny */
 }
 
 .hero-text h2 {
-  font-size: 2.5em;
+  font-size: 2em; /* Zmniejszony rozmiar nagłówka Hero */
   margin-bottom: var(--space-sm);
-  color: var(--color-surface); /* Kolor tekstu na tle overlay */
+  color: var(--color-surface);
 }
 
 .hero-text p {
-  font-size: 1.2em;
-  margin-bottom: var(--space-lg);
+  font-size: 1em; /* Lekko zmniejszony rozmiar tekstu Hero */
+  margin-bottom: var(--space-md); /* Zmniejszony margines dolny */
   max-width: 600px;
 }
 
 .hero-text .btn-shop-now {
   background-color: var(--color-secondary);
-  color: var(--color-text); /* Kontrastowy tekst */
+  color: var(--color-text);
 }
 
 .hero-text .btn-shop-now:hover {
-  background-color: #3cb39f; /* Ciemniejszy odcień secondary */
+  background-color: #3cb39f;
 }
 
 /* Sekcja Produktów (Siatka) */
 .product-grid {
   display: grid;
-  /* Domyślnie 2 kolumny na mniejszych ekranach, na większych więcej */
+  /* Na ekranach poniżej 768px minmax(250px, 1fr) sprawi, że będzie 1 kolumna,
+     gdyż dostępne miejsce (np. ~288px na 320px) będzie mniejsze niż 2*250px.
+     Jeśli chcesz wymusić mniejszą szerokość minimalną na bardzo małych ekranach,
+     możesz zmienić 250px na mniejszą wartość, np. 180px */
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: var(--space-md); /* Odstępy między elementami siatki */
+  gap: var(--space-sm); /* Zmniejszone odstępy między elementami siatki */
   margin-bottom: var(--space-md);
 }
 
@@ -337,71 +348,71 @@ main h2 {
   background-color: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: 8px;
-  overflow: hidden; /* Aby obrazek zaokrąglił rogi z kontenerem */
+  overflow: hidden;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  display: flex; /* Flexbox wewnątrz dla układu treści */
+  display: flex;
   flex-direction: column;
 }
 
 .product-item:hover {
-  transform: translateY(-5px); /* Lekkie przesunięcie w górę */
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtelny cień */
+  transform: translateY(-3px); /* Mniejsze przesunięcie w górę */
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Subtelniejszy cień */
 }
 
 .product-item a {
   text-decoration: none;
-  color: inherit; /* Dziedzicz kolor tekstu z rodzica */
+  color: inherit;
   display: flex;
   flex-direction: column;
-  height: 100%; /* Link obejmuje cały element */
+  height: 100%;
 }
 
 .product-item figure {
   margin: 0;
   padding: 0;
   position: relative;
-  overflow: hidden; /* Dla efektu zoomu na obrazku */
+  overflow: hidden;
 }
 
 .product-item img {
   width: 100%;
-  height: 300px; /* Stała wysokość obrazka produktu */
-  object-fit: cover; /* Kadrowanie obrazka */
+  height: 250px; /* Lekko zmniejszona wysokość obrazka produktu */
+  object-fit: cover;
   display: block;
   transition: transform 0.3s ease;
 }
 
 .product-item:hover img {
-  transform: scale(1.05); /* Lekki zoom na obrazku w hoverze */
+  transform: scale(1.03); /* Mniejszy zoom na obrazku */
 }
 
 .product-item h3 {
-  font-size: 1.2em;
-  margin: var(--space-sm);
-  flex-grow: 1; /* Tytuł zajmuje dostępną przestrzeń */
+  font-size: 1.1em; /* Lekko zmniejszony rozmiar tytułu produktu */
+  margin: var(--space-sm); /* Używamy nowej zmiennej */
+  flex-grow: 1;
 }
 
 .product-item .product-price {
-  font-size: 1.1em;
+  font-size: 1em; /* Lekko zmniejszony rozmiar ceny */
   font-weight: bold;
   color: var(--color-primary-dark);
   margin: 0 var(--space-sm) var(--space-sm);
-  text-align: right; /* Cena wyrównana do prawej */
+  text-align: right;
 }
 
 .view-all-link {
   text-align: center;
-  margin-top: var(--space-md);
+  margin-top: var(--space-md); /* Używamy nowej zmiennej */
 }
 
 /* Sekcja "Dlaczego Second Hand" */
 .about-promo {
   background-color: var(--color-surface);
-  padding: var(--space-xl);
+  padding: var(--space-md); /* Zmniejszony padding */
   text-align: center;
-  margin: var(--space-lg) 0;
+  margin: var(--space-lg) 0; /* Używamy nowych zmiennych */
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
@@ -411,7 +422,7 @@ main h2 {
 }
 
 .about-promo p {
-  font-size: 1.1em;
+  font-size: 1em; /* Lekko zmniejszony rozmiar tekstu */
   margin-bottom: var(--space-md);
   color: var(--color-text-light);
   max-width: 700px;
@@ -421,21 +432,22 @@ main h2 {
 
 /* --- Stopka Strony --- */
 footer {
-  background-color: var(--color-text); /* Ciemne tło stopki */
-  color: var(--color-background); /* Jasny tekst na ciemnym tle */
-  padding: var(--space-xl) var(--space-md);
+  background-color: var(--color-text);
+  color: var(--color-background);
+  padding: var(--space-md) var(--space-sm); /* Zmniejszony padding */
   display: flex;
-  flex-wrap: wrap; /* Stopka zawija się na mniejszych ekranach */
-  justify-content: space-around; /* Rozsuwa sekcje stopki */
+  flex-wrap: wrap;
+  justify-content: space-around;
   align-items: flex-start;
 }
 
 .footer-links ul {
   list-style: none;
   padding: 0;
-  margin-bottom: var(
-    --space-md
-  ); /* Odstęp jeśli zawinie się pod social media */
+  margin-bottom: var(--space-md); /* Używamy nowej zmiennej */
+  /* Możesz dodać text-align: center; jeśli chcesz wyśrodkować na małych ekranach */
+  width: 100%; /* Zapewnij, że zajmuje całą szerokość, jeśli zawija */
+  text-align: center;
 }
 
 .footer-links li {
@@ -444,19 +456,21 @@ footer {
 
 .footer-links a,
 .social-media a {
-  color: var(--color-background); /* Jasne linki */
+  color: var(--color-background);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .footer-links a:hover,
 .social-media a:hover {
-  color: var(--color-primary); /* Kolor akcentu na hover */
+  color: var(--color-primary);
   text-decoration: underline;
 }
 
 .social-media {
   text-align: center; /* Centruj na mniejszych ekranach */
+  width: 100%; /* Zapewnij, że zajmuje całą szerokość, jeśli zawija */
+  margin-top: var(--space-md); /* Dodaj odstęp od linków jeśli zawija */
 }
 
 .social-media p {
@@ -466,20 +480,29 @@ footer {
 
 .social-media a {
   display: inline-block;
-  margin: 0 var(--space-xs);
+  margin: 0 var(--space-xs); /* Zmniejszone marginesy między ikonami */
   /* Styl ikon SVG/FontAwesome - dostosuj */
-  font-size: 1.5em;
+  font-size: 1.3em; /* Lekko zmniejszony rozmiar ikon */
+}
+
+.social-media img {
+  width: 40px; /* Dopasuj rozmiar ikon SVG */
+  height: 40px;
+  margin: 0 var(--space-xs);
 }
 
 .copyright {
-  width: 100%; /* Zawsze zajmuje całą szerokość */
+  width: 100%;
   text-align: center;
-  margin-top: var(--space-lg);
-  font-size: 0.9em;
-  color: var(--color-text-light); /* Nieco ciemniejszy tekst praw autorskich */
+  margin-top: var(--space-lg); /* Używamy nowej zmiennej */
+  font-size: 0.8em; /* Lekko zmniejszona czcionka */
+  color: var(--color-text-light);
 }
 
 /* --- Responsywność (Media Queries) --- */
+
+/* Brak zmian w media queries, ponieważ domyślne style
+   zostały dostosowane dla ekranów < 768px, w tym 320px */
 
 /* Dla tabletów i większych (od 768px) */
 @media (min-width: 768px) {
@@ -487,52 +510,171 @@ footer {
     padding: var(--space-sm) var(--space-xl);
   }
 
+  /* Przywracamy domyślne zmienne odstępów dla większych ekranów
+     lub definiujemy je w tej media query */
+  :root {
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+    --nav-padding-horizontal: 16px;
+  }
+
+  body {
+    padding-top: 80px; /* Przywróć większy padding jeśli nagłówek jest wyższy */
+  }
+
+  .logo-title img {
+    width: 80px;
+    height: 50px;
+    margin-right: var(--space-sm);
+  }
+
+  .logo-title a {
+    gap: 0.5rem;
+  }
+
+  .search-bar {
+    margin: 0 var(--space-md);
+  }
+
+  .user-cart-icons a {
+    margin-left: var(--space-md);
+    font-size: 1.4em;
+  }
+  .user-cart-icons img {
+    width: 32px;
+    height: 32px;
+    margin-right: var(--space-sm); /* Przywróć margines jeśli potrzebny */
+  }
+  .user-cart-icons .cart-count {
+    top: -8px;
+    right: -8px;
+    font-size: 0.7em;
+    padding: 2px 6px;
+    min-width: 20px;
+  }
+
   nav ul {
-    padding: var(--space-sm) var(--space-xl);
+    padding: var(--nav-padding-vertical) var(--space-xl); /* Dostosuj do nowej zmiennej */
+  }
+  nav li {
+    margin: 0 var(--space-sm);
+    margin-bottom: 0; /* Usuń dolny margines */
+  }
+  nav a {
+    padding: var(--nav-padding-vertical) 0; /* Usuń poziomy padding w linku */
   }
 
   main {
-    padding: 0 var(--space-xl);
+    padding: 0 var(--space-xl); /* Dostosuj do nowej zmiennej */
+  }
+
+  main h2 {
+    font-size: 2em; /* Przywróć większy rozmiar */
   }
 
   .hero-section {
     height: 500px; /* Większa wysokość na tabletach */
+    margin-bottom: var(--space-xl); /* Dostosuj do nowej zmiennej */
+  }
+  .hero-text {
+    padding: var(--space-md);
   }
 
   .hero-text h2 {
-    font-size: 3em;
+    font-size: 2.5em; /* Przywróć większy rozmiar */
+    margin-bottom: var(--space-sm);
+  }
+  .hero-text p {
+    font-size: 1.2em;
+    margin-bottom: var(--space-lg);
   }
 
   .product-grid {
     /* 3 kolumny na tabletach */
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--space-md); /* Dostosuj do nowej zmiennej */
+    margin-bottom: var(--space-md);
+  }
+  .product-item img {
+    height: 300px; /* Przywróć większą wysokość obrazka */
+  }
+  .product-item h3 {
+    font-size: 1.2em;
+    margin: var(--space-sm);
+  }
+  .product-item .product-price {
+    font-size: 1.1em;
+    margin: 0 var(--space-sm) var(--space-sm);
+  }
+
+  .about-promo {
+    padding: var(--space-xl); /* Przywróć większy padding */
+    margin: var(--space-lg) 0; /* Dostosuj do nowej zmiennej */
+  }
+  .about-promo p {
+    font-size: 1.1em;
+    margin-bottom: var(--space-md);
   }
 
   footer {
-    padding: var(--space-xl);
+    padding: var(--space-xl); /* Przywróć większy padding */
+    justify-content: space-around;
+    align-items: flex-start; /* Wyrównaj do góry */
   }
-
   .footer-links ul {
-    margin-bottom: 0; /* Usuń margines jeśli nie zawija */
+    margin-bottom: 0;
+    width: auto; /* Pozwól zająć potrzebną szerokość */
+    text-align: left; /* Wyrównaj do lewej */
   }
 
   .social-media {
     text-align: left; /* Wyrównaj do lewej na większych ekranach */
+    width: auto; /* Pozwól zająć potrzebną szerokość */
+    margin-top: 0; /* Usuń górny margines */
+  }
+  .social-media p {
+    margin-bottom: var(--space-sm);
+  }
+  .social-media a {
+    margin: 0 var(--space-xs);
+    font-size: 1.5em;
+  }
+  .social-media img {
+    width: 64px;
+    height: 64px;
+    margin: 0 var(--space-xs);
+  }
+
+  .copyright {
+    margin-top: var(--space-xl); /* Dostosuj do nowej zmiennej */
+    font-size: 0.9em;
   }
 }
 
 /* Dla desktopów i większych (od 1024px) */
 @media (min-width: 1024px) {
+  /* Możesz dodatkowo zwiększyć zmienne odstępów dla jeszcze większych ekranów */
+  :root {
+    --space-xs: 8px;
+    --space-sm: 16px;
+    --space-md: 24px;
+    --space-lg: 32px;
+    --space-xl: 48px;
+  }
+
   header {
     padding: var(--space-md) var(--space-xl); /* Trochę większy padding */
   }
 
-  nav ul {
-    padding: var(--space-md) var(--space-xl);
-  }
-
   body {
     padding-top: 90px; /* Dostosuj padding top do nowej wysokości nagłówka */
+  }
+
+  nav ul {
+    padding: var(--space-md) var(--space-xl);
   }
 
   main {
@@ -544,7 +686,7 @@ footer {
   }
 
   .hero-text h2 {
-    font-size: 3.5em;
+    font-size: 3em; /* Możesz zwiększyć jeszcze bardziej */
   }
 
   .product-grid {
@@ -559,6 +701,8 @@ footer {
 
   .footer-links ul {
     display: flex; /* Linki w stopce w rzędzie */
+    width: auto;
+    text-align: left;
   }
 
   .footer-links li {
@@ -568,6 +712,7 @@ footer {
 
   .social-media {
     text-align: right; /* Wyrównaj do prawej */
+    width: auto;
   }
 }
 
@@ -578,12 +723,13 @@ footer {
   }
 
   .product-grid {
-    /* 5 kolumn na bardzo dużych ekranach */
+    /* 5 kolumn na bardzo dużych ekranach, jeśli minmax na to pozwoli */
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   }
 }
 
 /* --- Dodatkowe drobne poprawki --- */
+/* Upewnij się, że te globalne style są poniżej zmiennych */
 h1,
 h2,
 h3,
@@ -591,15 +737,15 @@ h4,
 h5,
 h6 {
   margin-top: 0;
-  margin-bottom: 0.5em; /* Domyślny odstęp pod nagłówkami */
+  margin-bottom: 0.5em;
   line-height: 1.2;
 }
 
 p {
-  margin-bottom: 1em; /* Domyślny odstęp pod paragrafami */
+  margin-bottom: 1em;
 }
 
 img {
-  max-width: 100%; /* Obrazki nie wyjdą poza kontener */
-  height: auto; /* Zachowaj proporcje */
+  max-width: 100%;
+  height: auto;
 }
