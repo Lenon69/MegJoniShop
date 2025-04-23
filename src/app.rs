@@ -56,12 +56,16 @@ pub fn App() -> impl IntoView {
             <main>
                 <Routes fallback=|| "Strona nie istnieje.".into_view()>
                     <Route path=StaticSegment("") view=HomePage/>
-                    <Route path=StaticSegment("about") view=AboutPage/>
-                    <Route path=StaticSegment("contact") view=ContactPage/>
-                    <Route path=StaticSegment("category/woman") view=WomanPage/>
-                    <Route path=StaticSegment("category/man") view=MenPage/>
+                    <Route path=StaticSegment("woman") view=WomanPage/>
+                    <Route path=StaticSegment("man") view=MenPage/>
                     <Route path=StaticSegment("new-arrivals") view=NewsPage/>
                     <Route path=StaticSegment("sale") view=SalePage/>
+                    <Route path=StaticSegment("about") view=AboutPage/>
+                    <Route path=StaticSegment("contact") view=ContactPage/>
+
+                    <Route path=StaticSegment("privacy") view=PrivacyPage/>
+                    <Route path=StaticSegment("shipping") view=ShippingReturnsPage/>
+                    <Route path=StaticSegment("terms") view=TermsAndConditionsPage/>
                 </Routes>
             </main>
 
@@ -71,7 +75,6 @@ pub fn App() -> impl IntoView {
 }
 
 #[component]
-
 fn Header() -> impl IntoView {
     view! {
       <header>
@@ -119,8 +122,8 @@ fn Navbar() -> impl IntoView {
     <nav>
         <ul>
         <li><a href="/">Strona Główna</a></li>
-        <li><a href="/category/woman">Damska</a></li>
-        <li><a href="/category/man">Męska</a></li>
+        <li><a href="/woman">Damska</a></li>
+        <li><a href="/man">Męska</a></li>
         <li><a href="/new-arrivals">Nowości</a></li>
         <li><a href="/sale">Wyprzedaż</a></li>
         <li><a href="/about">O Nas</a></li>
@@ -141,7 +144,7 @@ fn HomePage() -> impl IntoView {
             <div class="hero-text">
                 <h2>Moda z Duszą - Znajdź Swoje Unikalne Perełki</h2>
                 <p>Wysokiej jakości odzież używana, starannie wyselekcjonowana dla Ciebie.</p>
-                <a href="/shop">
+                <a href="/woman">
                     <button>Przejdź do sklepu</button>
                 </a>
             </div>
@@ -161,7 +164,7 @@ fn HomePage() -> impl IntoView {
                  </article>
              </div>
              <div class="view-all-link">
-                 <a href="/shop">Zobacz wszystkie produkty</a>
+                 <a href="/woman">Zobacz wszystkie produkty</a>
              </div>
         </section>
         <section class="about-promo">
@@ -222,11 +225,11 @@ pub fn AboutPage() -> impl IntoView {
         <main>
             <section class="about-promo"> // Używamy istniejącej klasy z HomePage dla spójności
             <div class="container">
-                <h2>O Nas - </h2>
-                <img src="megjoni-big.png"/>
+                <h2>O Nas</h2>
+                <img src="megjoni-big.png" id="megjoni-logo"/>
             </div>
                 <p>
-                    Witaj w Meg Joni! Jestem pasjonatami mody z drugiej ręki, wierzymy, że ubrania
+                    Witaj w Meg Joni! Jesteśmy pasjonatami mody z drugiej ręki, wierzymy, że ubrania
                     zasługują na drugie życie. Nasz sklep to miejsce, gdzie znajdziesz unikalne
                     perełki vintage i starannie wyselekcjonowaną odzież używaną w doskonałym stanie.
                 </p>
@@ -238,7 +241,7 @@ pub fn AboutPage() -> impl IntoView {
                 <p>
                     Dołącz do naszej społeczności miłośników second handu i odkryj swój niepowtarzalny styl!
                 </p>
-                 <a href="/category/woman">
+                 <a href="/woman">
                     <button>Zobacz nasze produkty</button>
                  </a>
             </section>
@@ -301,18 +304,18 @@ pub fn WomanPage() -> impl IntoView {
                     <article class="product-item">
                         <a href="/product/damskie-001">
                             <figure>
-                                <img src="/placeholder-damska-1.jpg" alt="Przykładowy produkt damski" width="300" height="400" />
+                                <img src="/czerwona-sukienka.jpg" alt="Przykładowy produkt damski" width="300" height="400" />
                             </figure>
-                            <h3>Elegancka Sukienka</h3>
+                            <h3>Czerwona sukienka</h3>
                             <p class="product-price">75.00 PLN</p>
                         </a>
                     </article>
                      <article class="product-item">
                         <a href="/product/damskie-002">
                             <figure>
-                                <img src="/placeholder-damska-2.jpg" alt="Przykładowy produkt damski" width="300" height="400" />
+                                <img src="/elegancka-sukienka.jpg" alt="Przykładowy produkt damski" width="300" height="400" />
                             </figure>
-                            <h3>Jeansy Vintage</h3>
+                            <h3>Elegancka sukienka</h3>
                             <p class="product-price">55.00 PLN</p>
                         </a>
                     </article>
@@ -338,18 +341,18 @@ pub fn MenPage() -> impl IntoView {
                     <article class="product-item">
                         <a href="/product/meskie-001">
                             <figure>
-                                <img src="/placeholder-meska-1.jpg" alt="Przykładowy produkt męski" width="300" height="400" />
+                                <img src="/black-tshirt.jpg" alt="Czarny T-Shirt Męski" width="300" height="400" />
                             </figure>
-                            <h3>Koszula w Kratę</h3>
+                            <h3>Czarny T-Shirt Męski</h3>
                             <p class="product-price">39.50 PLN</p>
                         </a>
                     </article>
                      <article class="product-item">
                         <a href="/product/meskie-002">
                             <figure>
-                                <img src="/placeholder-meska-2.jpg" alt="Przykładowy produkt męski" width="300" height="400" />
+                                <img src="/niebieska-bluza.jpg" alt="Przykładowy produkt męski" width="300" height="400" />
                             </figure>
-                            <h3>Kurtka Jeansowa</h3>
+                            <h3>Niebieska Bluza</h3>
                             <p class="product-price">85.00 PLN</p>
                         </a>
                     </article>
@@ -411,6 +414,201 @@ pub fn SalePage() -> impl IntoView {
                     </article>
                     // Dodaj więcej placeholderów produktów na wyprzedaży
                 </div>
+            </section>
+        </main>
+    }
+}
+
+#[component]
+pub fn PrivacyPage() -> impl IntoView {
+    view! {
+        <main class="max-w-3xl mx-auto p-4 text-gray-800 dark:text-gray-200">
+            <h1 class="text-3xl font-bold mb-6">"Polityka Prywatności"</h1>
+            <p class="text-sm text-gray-500 mb-8">"Data ostatniej aktualizacji: 23 kwietnia 2025 r."</p>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"1. Administrator danych osobowych"</h2>
+                <p>"Administratorem Twoich danych osobowych jest Magdalena Kluba, prowadząca działalność pod nazwą \"Meg Joni\". Możesz się z nami skontaktować pod adresem e-mail: kontakt@megjoni.pl."</p>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"2. Jakie dane zbieramy?"</h2>
+                <ul class="list-disc list-inside">
+                    <li>"imię i nazwisko"</li>
+                    <li>"adres dostawy"</li>
+                    <li>"adres e-mail"</li>
+                    <li>"numer telefonu (opcjonalnie)"</li>
+                    <li>"dane do faktury (jeśli dotyczy)"</li>
+                    <li>"adres IP oraz dane o aktywności na stronie (cookies – patrz pkt 6)"</li>
+                </ul>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"3. Cel i podstawa prawna przetwarzania danych"</h2>
+                <ul class="list-disc list-inside">
+                    <li>"realizacja zamówień (art. 6 ust. 1 lit. b RODO)"</li>
+                    <li>"prowadzenie konta użytkownika (jeśli dotyczy)"</li>
+                    <li>"kontakt z klientem (art. 6 ust. 1 lit. f RODO)"</li>
+                    <li>"cele księgowe (art. 6 ust. 1 lit. c RODO)"</li>
+                    <li>"cele marketingowe za zgodą (art. 6 ust. 1 lit. a RODO)"</li>
+                </ul>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"4. Czas przechowywania danych"</h2>
+                <p>"Dane przechowujemy do czasu realizacji umowy i przez okres wymagany przepisami prawa. Dane wykorzystywane do celów marketingowych – do momentu cofnięcia zgody."</p>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"5. Udostępnianie danych"</h2>
+                <p>"Dane mogą być przekazywane firmom kurierskim, operatorom płatności, biuru księgowemu oraz firmie hostingowej – tylko w zakresie niezbędnym do świadczenia usług."</p>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"6. Pliki cookies"</h2>
+                <p>"Używamy cookies do działania strony, analizy ruchu (np. Google Analytics) i personalizacji treści. Możesz zmienić ich ustawienia w przeglądarce."</p>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"7. Twoje prawa"</h2>
+                <ul class="list-disc list-inside">
+                    <li>"dostęp do danych"</li>
+                    <li>"sprostowanie, usunięcie lub ograniczenie przetwarzania"</li>
+                    <li>"przenoszenie danych"</li>
+                    <li>"sprzeciw wobec przetwarzania"</li>
+                    <li>"cofnięcie zgody"</li>
+                    <li>"skarga do Prezesa UODO"</li>
+                </ul>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"8. Kontakt"</h2>
+                <p>
+                    "W sprawach związanych z ochroną danych osobowych, skontaktuj się z nami:"<br/>
+                    "📧 E-mail: kontakt@megjoni.pl"<br/>
+                    "📬 Adres: Siedziba Łódź"
+                </p>
+            </section>
+        </main>
+    }
+}
+
+#[component]
+pub fn ShippingReturnsPage() -> impl IntoView {
+    view! {
+        <main class="max-w-3xl mx-auto p-4 text-gray-800 dark:text-gray-200">
+            <h1 class="text-3xl font-bold mb-6">"Wysyłka i zwroty"</h1>
+            <p class="text-sm text-gray-500 mb-8">"Data ostatniej aktualizacji: 23 kwietnia 2025 r."</p>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"1. Koszt i czas wysyłki"</h2>
+                <ul class="list-disc list-inside">
+                    <li>"Koszt dostawy na terenie Polski: 14,99 zł"</li>
+                    <li>"Czas realizacji zamówienia: 1–3 dni robocze"</li>
+                    <li>"Czas dostawy: 1–2 dni robocze od momentu nadania"</li>
+                    <li>"Darmowa dostawa dla zamówień powyżej [np. 200 zł]"</li>
+                </ul>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"2. Formy dostawy"</h2>
+                <ul class="list-disc list-inside">
+                    <li>"Kurier (np. InPost, DPD, DHL)"</li>
+                    <li>"Paczkomaty InPost"</li>
+                </ul>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"3. Zwroty i reklamacje"</h2>
+                <p>"Zgodnie z prawem konsumenta masz prawo do zwrotu towaru w ciągu 14 dni od jego otrzymania – bez podania przyczyny."</p>
+                <ul class="list-disc list-inside mt-2">
+                    <li>"Produkt nie może nosić śladów użytkowania i musi być odesłany w oryginalnym stanie"</li>
+                    <li>"Zwrotu dokonujesz na własny koszt"</li>
+                    <li>"Zwrot środków nastąpi do 14 dni od otrzymania przesyłki"</li>
+                </ul>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"4. Jak dokonać zwrotu?"</h2>
+                <ol class="list-decimal list-inside">
+                    <li>"Wypełnij formularz zwrotu (dostępny w zakładce Zwroty lub dołączony do przesyłki)"</li>
+                    <li>"Zapakuj produkt i odeślij na adres:"<br/>"[Adres do zwrotu]"</li>
+                    <li>"Po otrzymaniu i sprawdzeniu przesyłki dokonamy zwrotu pieniędzy"</li>
+                </ol>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"5. Reklamacje"</h2>
+                <p>"Jeśli produkt jest uszkodzony lub niezgodny z opisem, skontaktuj się z nami pod adresem e-mail: kontakt@megjoni.pl. Do reklamacji dołącz zdjęcia oraz numer zamówienia."</p>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"6. Kontakt"</h2>
+                <p>
+                    "W razie pytań dotyczących wysyłki lub zwrotów:"<br/>
+                    "📧 E-mail: kontakt@megjoni.pl"<br/>
+                    "📬 Adres: Siedziba Łódź"
+                </p>
+            </section>
+        </main>
+    }
+}
+
+#[component]
+pub fn TermsAndConditionsPage() -> impl IntoView {
+    view! {
+        <main class="max-w-3xl mx-auto p-4 text-gray-800 dark:text-gray-200">
+            <h1 class="text-3xl font-bold mb-6">"Regulamin sklepu"</h1>
+            <p class="text-sm text-gray-500 mb-8">"Data ostatniej aktualizacji: 23 kwietnia 2025 r."</p>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"1. Postanowienia ogólne"</h2>
+                <p>
+                    "Niniejszy regulamin określa zasady korzystania ze sklepu internetowego prowadzonego pod adresem www.megjoni.pl.
+                    Sklep prowadzony jest przez [pełna nazwa firmy, adres, NIP, REGON]."
+                </p>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"2. Składanie zamówień"</h2>
+                <ul class="list-disc list-inside">
+                    <li>"Zamówienia można składać 24 godziny na dobę, 7 dni w tygodniu"</li>
+                    <li>"Złożenie zamówienia oznacza akceptację niniejszego regulaminu"</li>
+                    <li>"Po złożeniu zamówienia klient otrzymuje e-mail z potwierdzeniem przyjęcia zamówienia"</li>
+                </ul>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"3. Ceny i płatności"</h2>
+                <ul class="list-disc list-inside">
+                    <li>"Wszystkie ceny podane w sklepie są cenami brutto i zawierają podatek VAT"</li>
+                    <li>"Akceptowane formy płatności: przelew bankowy, szybkie płatności online, BLIK"</li>
+                    <li>"Zamówienie jest realizowane po zaksięgowaniu płatności"</li>
+                </ul>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"4. Dostawa"</h2>
+                <p>"Informacje o kosztach i czasie dostawy znajdują się w zakładce Wysyłka i zwroty."</p>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"5. Zwroty i reklamacje"</h2>
+                <p>"Klient ma prawo do zwrotu towaru w ciągu 14 dni bez podania przyczyny. Szczegóły znajdują się w zakładce Wysyłka i zwroty."</p>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"6. Dane osobowe"</h2>
+                <p>"Szczegóły dotyczące przetwarzania danych osobowych znajdują się w Polityce Prywatności."</p>
+            </section>
+
+            <section class="mb-6">
+                <h2 class="text-xl font-semibold mb-2">"7. Postanowienia końcowe"</h2>
+                <ul class="list-disc list-inside">
+                    <li>"Sklep zastrzega sobie prawo do zmiany regulaminu"</li>
+                    <li>"W sprawach nieuregulowanych mają zastosowanie przepisy prawa polskiego"</li>
+                    <li>"Spory będą rozstrzygane przez właściwy sąd powszechny"</li>
+                </ul>
             </section>
         </main>
     }

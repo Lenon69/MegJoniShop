@@ -422,6 +422,13 @@ main h2 {
 /* Sekcja "Dlaczego Second Hand" */
 .container {
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#megjoni-logo {
+  height: 150px;
 }
 
 .about-promo {
