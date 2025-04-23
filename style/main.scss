@@ -1,751 +1,751 @@
-/* style.css
-    Profesjonalne style dla sklepu z odzieżą używaną
-*/
+/* /* style.css */
+    /* Profesjonalne style dla sklepu z odzieżą używaną */
+/* */ */
 
 /* --- Podstawowy Reset i Zmienne CSS --- */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+/* *, */
+/* *::before, */
+/* *::after { */
+  /* box-sizing: border-box; */
+  /* margin: 0; */
+  /* padding: 0; */
+/* } */
 
-:root {
+/* :root { */
   /* Paleta Kolorów */
-  --color-primary: #4a90e2; /* Główny kolor akcentu (np. przyciski) */
-  --color-primary-dark: #357bd8; /* Ciemniejszy odcień primary */
-  --color-secondary: #50e3c2; /* Drugi kolor akcentu */
-  --color-text: #333; /* Kolor tekstu głównego */
-  --color-text-light: #666; /* Kolor tekstu pomocniczego */
-  --color-background: #f8f8f8; /* Kolor tła strony */
-  --color-surface: #fff; /* Kolor tła elementów (kart, nagłówka, stopki) */
-  --color-border: #ddd; /* Kolor obramowań */
-  --color-error: #e74c3c; /* Kolor błędów */
+  /* --color-primary: #4a90e2; /* Główny kolor akcentu (np. przyciski) */ */
+  /* --color-primary-dark: #357bd8; /* Ciemniejszy odcień primary */ */
+  /* --color-secondary: #50e3c2; /* Drugi kolor akcentu */ */
+  /* --color-text: #333; /* Kolor tekstu głównego */ */
+  /* --color-text-light: #666; /* Kolor tekstu pomocniczego */ */
+  /* --color-background: #f8f8f8; /* Kolor tła strony */ */
+  /* --color-surface: #fff; /* Kolor tła elementów (kart, nagłówka, stopki) */ */
+  /* --color-border: #ddd; /* Kolor obramowań */ */
+  /* --color-error: #e74c3c; /* Kolor błędów */ */
 
-  --nav-padding-vertical: 6px;
-  --nav-padding-horizontal: 10px; /* Zmniejszone poziome padding dla nawigacji na małych ekranach */
+  /* --nav-padding-vertical: 6px; */
+  /* --nav-padding-horizontal: 10px; /* Zmniejszone poziome padding dla nawigacji na małych ekranach */ */
 
   /* Typography */
-  --font-family-base:
-    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
-  --font-size-base: 16px;
-  --line-height-base: 1.6;
+  /* --font-family-base: */
+    /* "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", */
+    /* "Helvetica Neue", sans-serif; */
+  /* --font-size-base: 16px; */
+  /* --line-height-base: 1.6; */
 
   /* Spacing (użyj skali dla spójności) */
-  --space-xs: 6px; /* Lekko zmniejszone najmniejsze odstępy */
-  --space-sm: 12px; /* Lekko zmniejszone małe odstępy */
-  --space-md: 18px; /* Zmniejszone średnie odstępy */
-  --space-lg: 24px; /* Zmniejszone duże odstępy */
-  --space-xl: 32px; /* Zmniejszone bardzo duże odstępy */
-}
+  /* --space-xs: 6px; /* Lekko zmniejszone najmniejsze odstępy */ */
+  /* --space-sm: 12px; /* Lekko zmniejszone małe odstępy */ */
+  /* --space-md: 18px; /* Zmniejszone średnie odstępy */ */
+  /* --space-lg: 24px; /* Zmniejszone duże odstępy */ */
+  /* --space-xl: 32px; /* Zmniejszone bardzo duże odstępy */ */
+/* } */
 
-body {
-  font-family: var(--font-family-base);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  color: var(--color-text);
-  background-color: var(--color-background);
-  padding-top: 70px; /* Dostosuj padding-top do potencjalnie niższej wysokości nagłówka na małych ekranach */
-}
+/* body { */
+  /* font-family: var(--font-family-base); */
+  /* font-size: var(--font-size-base); */
+  /* line-height: var(--line-height-base); */
+  /* color: var(--color-text); */
+  /* background-color: var(--color-background); */
+  /* padding-top: 70px; /* Dostosuj padding-top do potencjalnie niższej wysokości nagłówka na małych ekranach */ */
+/* } */
 
 /* --- Udogodnienia Dostepności --- */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  border: 0;
-}
+/* .visually-hidden { */
+  /* position: absolute; */
+  /* width: 1px; */
+  /* height: 1px; */
+  /* margin: -1px; */
+  /* padding: 0; */
+  /* overflow: hidden; */
+  /* clip: rect(0, 0, 0, 0); */
+  /* border: 0; */
+/* } */
 
 /* --- Globalne Style dla Linków i Przycisków --- */
-a {
-  color: var(--color-primary);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+/* a { */
+  /* color: var(--color-primary); */
+  /* text-decoration: none; */
+  /* transition: color 0.3s ease; */
+/* } */
 
-a:hover,
-a:focus {
-  color: var(--color-primary-dark);
-  text-decoration: underline;
-}
+/* a:hover, */
+/* a:focus { */
+  /* color: var(--color-primary-dark); */
+  /* text-decoration: underline; */
+/* } */
 
-button,
-.btn {
-  display: inline-block;
-  padding: var(--space-sm) var(--space-md); /* Używamy nowych, mniejszych zmiennych */
-  font-size: var(--font-size-base);
-  font-weight: bold;
-  text-align: center;
-  text-decoration: none;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition:
-    background-color 0.3s ease,
-    opacity 0.3s ease;
-  background-color: var(--color-primary);
-  color: var(--color-surface);
-}
+/* button, */
+/* .btn { */
+  /* display: inline-block; */
+  /* padding: var(--space-sm) var(--space-md); /* Używamy nowych, mniejszych zmiennych */ */
+  /* font-size: var(--font-size-base); */
+  /* font-weight: bold; */
+  /* text-align: center; */
+  /* text-decoration: none; */
+  /* border: none; */
+  /* border-radius: 4px; */
+  /* cursor: pointer; */
+  /* transition: */
+    /* background-color 0.3s ease, */
+    /* opacity 0.3s ease; */
+  /* background-color: var(--color-primary); */
+  /* color: var(--color-surface); */
+/* } */
 
-button:hover,
-button:focus,
-.btn:hover,
-.btn:focus {
-  background-color: var(--color-primary-dark);
-}
+/* button:hover, */
+/* button:focus, */
+/* .btn:hover, */
+/* .btn:focus { */
+  /* background-color: var(--color-primary-dark); */
+/* } */
 
-button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
+/* button:disabled { */
+  /* opacity: 0.6; */
+  /* cursor: not-allowed; */
+/* } */
 
 /* --- Header (Nagłówek Strony) --- */
-header {
-  position: fixed; /* Nagłówek przyklejony do góry */
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: var(--color-surface);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 8px var(--space-sm); /* Dodany poziomy padding dla małych ekranów */
-  display: flex; /* Używamy flexbox do rozmieszczenia elementów */
-  justify-content: space-between; /* Rozsuwa elementy na boki */
-  align-items: center; /* Centruje elementy w pionie */
-  z-index: 1000; /* Upewnia się, że nagłówek jest na wierzchu */
+/* header { */
+  /* position: fixed; /* Nagłówek przyklejony do góry */ */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* background-color: var(--color-surface); */
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
+  /* padding: 8px var(--space-sm); /* Dodany poziomy padding dla małych ekranów */ */
+  /* display: flex; /* Używamy flexbox do rozmieszczenia elementów */ */
+  /* justify-content: space-between; /* Rozsuwa elementy na boki */ */
+  /* align-items: center; /* Centruje elementy w pionie */ */
+  /* z-index: 1000; /* Upewnia się, że nagłówek jest na wierzchu */ */
   /* Możesz rozważyć flex-wrap: wrap; jeśli elementy nagłówka się nie mieszczą */
-}
+/* } */
 
-header > div {
-  display: flex;
-  align-items: center;
-}
+/* header > div { */
+  /* display: flex; */
+  /* align-items: center; */
+/* } */
 
-header a {
-  color: var(--color-text);
-  text-decoration: none;
-}
+/* header a { */
+  /* color: var(--color-text); */
+  /* text-decoration: none; */
+/* } */
 
-header a:hover {
-  color: var(--color-primary);
-  text-decoration: none;
-}
+/* header a:hover { */
+  /* color: var(--color-primary); */
+  /* text-decoration: none; */
+/* } */
 
-.logo-title img {
+/* .logo-title img { */
   /* Dostosuj rozmiar logo na małych ekranach, jeśli domyślne 80x50px jest za duże */
-  width: 60px;
-  height: auto; /* Zachowaj proporcje */
-  margin-right: var(--space-xs); /* Mniejszy margines */
-}
+  /* width: 60px; */
+  /* height: auto; /* Zachowaj proporcje */ */
+  /* margin-right: var(--space-xs); /* Mniejszy margines */ */
+/* } */
 
-.logo-title a {
-  display: flex;
-  align-items: center;
-  text-decoration: none;
-  gap: var(--space-xs); /* Mniejszy odstęp między logo a napisem */
-}
+/* .logo-title a { */
+  /* display: flex; */
+  /* align-items: center; */
+  /* text-decoration: none; */
+  /* gap: var(--space-xs); /* Mniejszy odstęp między logo a napisem */ */
+/* } */
 
 /* Wyszukiwarka w nagłówku */
-.search-bar {
-  flex-grow: 1; /* Pozwala wyszukiwarce zająć dostępną przestrzeń */
-  margin: 0 var(--space-sm); /* Zmniejszone poziome marginesy */
-  max-width: 400px; /* Ogranicz maksymalną szerokość */
-}
+/* .search-bar { */
+  /* flex-grow: 1; /* Pozwala wyszukiwarce zająć dostępną przestrzeń */ */
+  /* margin: 0 var(--space-sm); /* Zmniejszone poziome marginesy */ */
+  /* max-width: 400px; /* Ogranicz maksymalną szerokość */ */
+/* } */
 
-.search-bar form {
-  display: flex;
-  border: 1px solid var(--color-border);
-  border-radius: 4px;
-  overflow: hidden;
-}
+/* .search-bar form { */
+  /* display: flex; */
+  /* border: 1px solid var(--color-border); */
+  /* border-radius: 4px; */
+  /* overflow: hidden; */
+/* } */
 
-.search-bar input[type="text"] {
-  flex-grow: 1;
-  padding: var(--space-xs) var(--space-sm); /* Zmniejszone paddingi w input */
-  border: none;
-  outline: none;
-  font-size: var(--font-size-base);
-}
+/* .search-bar input[type="text"] { */
+  /* flex-grow: 1; */
+  /* padding: var(--space-xs) var(--space-sm); /* Zmniejszone paddingi w input */ */
+  /* border: none; */
+  /* outline: none; */
+  /* font-size: var(--font-size-base); */
+/* } */
 
-.search-bar button {
-  padding: var(--space-xs) var(--space-sm); /* Zmniejszone paddingi w przycisku */
-  background-color: var(--color-primary-dark);
-  color: var(--color-surface);
-  border: none;
-  cursor: pointer;
+/* .search-bar button { */
+  /* padding: var(--space-xs) var(--space-sm); /* Zmniejszone paddingi w przycisku */ */
+  /* background-color: var(--color-primary-dark); */
+  /* color: var(--color-surface); */
+  /* border: none; */
+  /* cursor: pointer; */
   /* Możesz dodać min-width: żeby przycisk nie był za wąski */
-}
+/* } */
 
-.search-bar button:hover {
-  background-color: #2a6bb0; /* Ciemniejszy odcień */
-}
+/* .search-bar button:hover { */
+  /* background-color: #2a6bb0; /* Ciemniejszy odcień */ */
+/* } */
 
 /* Ikonki użytkownika i koszyka */
-.user-cart-icons {
-  display: flex;
-  align-items: center;
-}
+/* .user-cart-icons { */
+  /* display: flex; */
+  /* align-items: center; */
+/* } */
 
-.user-cart-icons a {
-  margin-left: var(--space-sm); /* Zmniejszony margines między ikonami */
-  position: relative; /* Dla pozycjonowania licznika koszyka */
-  font-size: 1.2em; /* Lekko zmniejszony rozmiar ikon, jeśli 1.4em za duże */
-}
+/* .user-cart-icons a { */
+  /* margin-left: var(--space-sm); /* Zmniejszony margines między ikonami */ */
+  /* position: relative; /* Dla pozycjonowania licznika koszyka */ */
+  /* font-size: 1.2em; /* Lekko zmniejszony rozmiar ikon, jeśli 1.4em za duże */ */
+/* } */
 
-.user-cart-icons img {
+/* .user-cart-icons img { */
   /* Dopasuj rozmiar ikon SVG, jeśli używasz img zamiast font-size */
-  width: 28px;
-  height: 28px;
-  margin-right: 0; /* Usuń domyślny margin-right z img w header > div */
-}
+  /* width: 28px; */
+  /* height: 28px; */
+  /* margin-right: 0; /* Usuń domyślny margin-right z img w header > div */ */
+/* } */
 
-.user-cart-icons .cart-count {
-  position: absolute;
-  top: -6px; /* Dostosuj pozycję */
-  right: -6px; /* Dostosuj pozycję */
-  background-color: var(--color-error); /* Czerwone kółko */
-  color: var(--color-surface);
-  font-size: 0.6em; /* Zmniejszona czcionka */
-  font-weight: bold;
-  border-radius: 50%;
-  padding: 1px 4px; /* Zmniejszone paddingi */
-  min-width: 16px; /* Mniejsza minimalna szerokość */
-  text-align: center;
-  line-height: 1;
-  border: 1px solid var(--color-surface);
-}
+/* .user-cart-icons .cart-count { */
+  /* position: absolute; */
+  /* top: -6px; /* Dostosuj pozycję */ */
+  /* right: -6px; /* Dostosuj pozycję */ */
+  /* background-color: var(--color-error); /* Czerwone kółko */ */
+  /* color: var(--color-surface); */
+  /* font-size: 0.6em; /* Zmniejszona czcionka */ */
+  /* font-weight: bold; */
+  /* border-radius: 50%; */
+  /* padding: 1px 4px; /* Zmniejszone paddingi */ */
+  /* min-width: 16px; /* Mniejsza minimalna szerokość */ */
+  /* text-align: center; */
+  /* line-height: 1; */
+  /* border: 1px solid var(--color-surface); */
+/* } */
 
 /* --- Nawigacja Główna --- */
-nav {
-  background-color: var(--color-surface);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  margin-bottom: var(--space-md); /* Zmniejszony margines dolny */
-}
+/* nav { */
+  /* background-color: var(--color-surface); */
+  /* box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08); */
+  /* margin-bottom: var(--space-md); /* Zmniejszony margines dolny */ */
+/* } */
 
-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  padding: var(--nav-padding-vertical) var(--space-sm); /* Dodany/dostosowany poziomy padding */
-  flex-wrap: wrap;
-}
+/* nav ul { */
+  /* list-style: none; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* padding: var(--nav-padding-vertical) var(--space-sm); /* Dodany/dostosowany poziomy padding */ */
+  /* flex-wrap: wrap; */
+/* } */
 
-nav li {
-  margin: 0 var(--space-xs); /* Zmniejszone marginesy między elementami menu */
-  /* Jeśli elementy menu nadal się nie mieszczą i zawijają się w brzydki sposób,
-     możesz dodać margines na dole po zawinięciu */
-  margin-bottom: var(
-    --space-xs
-  ); /* Dodaj odstęp na dole, jeśli element zawinął się */
-}
+/* nav li { */
+  /* margin: 0 var(--space-xs); /* Zmniejszone marginesy między elementami menu */ */
+  /* /* Jeśli elementy menu nadal się nie mieszczą i zawijają się w brzydki sposób, */
+     /* możesz dodać margines na dole po zawinięciu */ */
+  /* margin-bottom: var( */
+    /* --space-xs */
+  /* ); /* Dodaj odstęp na dole, jeśli element zawinął się */ */
+/* } */
 
-nav a {
-  color: var(--color-text-light);
-  font-weight: bold;
-  text-transform: uppercase;
-  padding: var(--nav-padding-vertical) var(--space-xs); /* Dodaj lekki padding wewnątrz linków */
-  border-bottom: 2px solid transparent;
-  transition:
-    color 0.3s ease,
-    border-bottom-color 0.3s ease;
+/* nav a { */
+  /* color: var(--color-text-light); */
+  /* font-weight: bold; */
+  /* text-transform: uppercase; */
+  /* padding: var(--nav-padding-vertical) var(--space-xs); /* Dodaj lekki padding wewnątrz linków */ */
+  /* border-bottom: 2px solid transparent; */
+  /* transition: */
+    /* color 0.3s ease, */
+    /* border-bottom-color 0.3s ease; */
   /* Użyj display: block; jeśli chcesz, żeby cały obszar li był klikalny */
-  display: block;
-}
+  /* display: block; */
+/* } */
 
-nav a:hover,
-nav a:focus {
-  color: var(--color-primary);
-  border-bottom-color: var(--color-primary);
-  text-decoration: none;
-}
+/* nav a:hover, */
+/* nav a:focus { */
+  /* color: var(--color-primary); */
+  /* border-bottom-color: var(--color-primary); */
+  /* text-decoration: none; */
+/* } */
 
 /* --- Główna Zawartość --- */
-main {
-  padding: 0 var(--space-sm); /* Zmniejszony poziomy padding */
-  max-width: 1200px;
-  margin: var(--space-md) auto; /* Używamy nowych, mniejszych zmiennych */
-}
+/* main { */
+  /* padding: 0 var(--space-sm); /* Zmniejszony poziomy padding */ */
+  /* max-width: 1200px; */
+  /* margin: var(--space-md) auto; /* Używamy nowych, mniejszych zmiennych */ */
+/* } */
 
-main h2 {
-  font-size: 1.8em; /* Lekko zmniejszony rozmiar nagłówków sekcji */
-  margin-bottom: var(--space-md);
-  text-align: center;
-  color: var(--color-text);
-}
+/* main h2 { */
+  /* font-size: 1.8em; /* Lekko zmniejszony rozmiar nagłówków sekcji */ */
+  /* margin-bottom: var(--space-md); */
+  /* text-align: center; */
+  /* color: var(--color-text); */
+/* } */
 
 /* Sekcja Hero */
-.hero-section {
-  position: relative;
-  width: 100%;
-  height: 300px; /* Zmniejszona wysokość sekcji Hero dla małych ekranów */
-  overflow: hidden;
-  margin-bottom: var(--space-lg); /* Używamy nowej, mniejszej zmiennej */
-  border-radius: 8px;
-}
+/* .hero-section { */
+  /* position: relative; */
+  /* width: 100%; */
+  /* height: 300px; /* Zmniejszona wysokość sekcji Hero dla małych ekranów */ */
+  /* overflow: hidden; */
+  /* margin-bottom: var(--space-lg); /* Używamy nowej, mniejszej zmiennej */ */
+  /* border-radius: 8px; */
+/* } */
 
-.hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+/* .hero-image { */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* object-fit: cover; */
+  /* display: block; */
+/* } */
 
-.hero-text {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: rgba(0, 0, 0, 0.4);
-  color: var(--color-surface);
-  padding: var(--space-md); /* Zmniejszony padding wewnętrzny */
-}
+/* .hero-text { */
+  /* position: absolute; */
+  /* top: 0; */
+  /* left: 0; */
+  /* width: 100%; */
+  /* height: 100%; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* text-align: center; */
+  /* background-color: rgba(0, 0, 0, 0.4); */
+  /* color: var(--color-surface); */
+  /* padding: var(--space-md); /* Zmniejszony padding wewnętrzny */ */
+/* } */
 
-.hero-text h2 {
-  font-size: 2em; /* Zmniejszony rozmiar nagłówka Hero */
-  margin-bottom: var(--space-sm);
-  color: var(--color-surface);
-}
+/* .hero-text h2 { */
+  /* font-size: 2em; /* Zmniejszony rozmiar nagłówka Hero */ */
+  /* margin-bottom: var(--space-sm); */
+  /* color: var(--color-surface); */
+/* } */
 
-.hero-text p {
-  font-size: 1em; /* Lekko zmniejszony rozmiar tekstu Hero */
-  margin-bottom: var(--space-md); /* Zmniejszony margines dolny */
-  max-width: 600px;
-}
+/* .hero-text p { */
+  /* font-size: 1em; /* Lekko zmniejszony rozmiar tekstu Hero */ */
+  /* margin-bottom: var(--space-md); /* Zmniejszony margines dolny */ */
+  /* max-width: 600px; */
+/* } */
 
-.hero-text .btn-shop-now {
-  background-color: var(--color-secondary);
-  color: var(--color-text);
-}
+/* .hero-text .btn-shop-now { */
+  /* background-color: var(--color-secondary); */
+  /* color: var(--color-text); */
+/* } */
 
-.hero-text .btn-shop-now:hover {
-  background-color: #3cb39f;
-}
+/* .hero-text .btn-shop-now:hover { */
+  /* background-color: #3cb39f; */
+/* } */
 
 /* Sekcja Produktów (Siatka) */
-.product-grid {
-  display: grid;
-  /* Na ekranach poniżej 768px minmax(250px, 1fr) sprawi, że będzie 1 kolumna,
-     gdyż dostępne miejsce (np. ~288px na 320px) będzie mniejsze niż 2*250px.
-     Jeśli chcesz wymusić mniejszą szerokość minimalną na bardzo małych ekranach,
-     możesz zmienić 250px na mniejszą wartość, np. 180px */
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: var(--space-sm); /* Zmniejszone odstępy między elementami siatki */
-  margin-bottom: var(--space-md);
-}
+/* .product-grid { */
+  /* display: grid; */
+  /* /* Na ekranach poniżej 768px minmax(250px, 1fr) sprawi, że będzie 1 kolumna, */
+     /* gdyż dostępne miejsce (np. ~288px na 320px) będzie mniejsze niż 2*250px. */
+     /* Jeśli chcesz wymusić mniejszą szerokość minimalną na bardzo małych ekranach, */
+     /* możesz zmienić 250px na mniejszą wartość, np. 180px */ */
+  /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+  /* gap: var(--space-sm); /* Zmniejszone odstępy między elementami siatki */ */
+  /* margin-bottom: var(--space-md); */
+/* } */
 
-.product-item {
-  background-color: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: 8px;
-  overflow: hidden;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-  display: flex;
-  flex-direction: column;
-}
+/* .product-item { */
+  /* background-color: var(--color-surface); */
+  /* border: 1px solid var(--color-border); */
+  /* border-radius: 8px; */
+  /* overflow: hidden; */
+  /* transition: */
+    /* transform 0.3s ease, */
+    /* box-shadow 0.3s ease; */
+  /* display: flex; */
+  /* flex-direction: column; */
+/* } */
 
-.product-item:hover {
-  transform: translateY(-3px); /* Mniejsze przesunięcie w górę */
-  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Subtelniejszy cień */
-}
+/* .product-item:hover { */
+  /* transform: translateY(-3px); /* Mniejsze przesunięcie w górę */ */
+  /* box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1); /* Subtelniejszy cień */ */
+/* } */
 
-.product-item a {
-  text-decoration: none;
-  color: inherit;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
+/* .product-item a { */
+  /* text-decoration: none; */
+  /* color: inherit; */
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* height: 100%; */
+/* } */
 
-.product-item figure {
-  margin: 0;
-  padding: 0;
-  position: relative;
-  overflow: hidden;
-}
+/* .product-item figure { */
+  /* margin: 0; */
+  /* padding: 0; */
+  /* position: relative; */
+  /* overflow: hidden; */
+/* } */
 
-.product-item img {
-  width: 100%;
-  height: 250px; /* Lekko zmniejszona wysokość obrazka produktu */
-  object-fit: cover;
-  display: block;
-  transition: transform 0.3s ease;
-}
+/* .product-item img { */
+  /* width: 100%; */
+  /* height: 250px; /* Lekko zmniejszona wysokość obrazka produktu */ */
+  /* object-fit: cover; */
+  /* display: block; */
+  /* transition: transform 0.3s ease; */
+/* } */
 
-.product-item:hover img {
-  transform: scale(1.03); /* Mniejszy zoom na obrazku */
-}
+/* .product-item:hover img { */
+  /* transform: scale(1.03); /* Mniejszy zoom na obrazku */ */
+/* } */
 
-.product-item h3 {
-  font-size: 1.1em; /* Lekko zmniejszony rozmiar tytułu produktu */
-  margin: var(--space-sm); /* Używamy nowej zmiennej */
-  flex-grow: 1;
-}
+/* .product-item h3 { */
+  /* font-size: 1.1em; /* Lekko zmniejszony rozmiar tytułu produktu */ */
+  /* margin: var(--space-sm); /* Używamy nowej zmiennej */ */
+  /* flex-grow: 1; */
+/* } */
 
-.product-item .product-price {
-  font-size: 1em; /* Lekko zmniejszony rozmiar ceny */
-  font-weight: bold;
-  color: var(--color-primary-dark);
-  margin: 0 var(--space-sm) var(--space-sm);
-  text-align: right;
-}
+/* .product-item .product-price { */
+  /* font-size: 1em; /* Lekko zmniejszony rozmiar ceny */ */
+  /* font-weight: bold; */
+  /* color: var(--color-primary-dark); */
+  /* margin: 0 var(--space-sm) var(--space-sm); */
+  /* text-align: right; */
+/* } */
 
-.view-all-link {
-  text-align: center;
-  margin-top: var(--space-md); /* Używamy nowej zmiennej */
-}
+/* .view-all-link { */
+  /* text-align: center; */
+  /* margin-top: var(--space-md); /* Używamy nowej zmiennej */ */
+/* } */
 
 /* Sekcja "Dlaczego Second Hand" */
-.about-promo {
-  background-color: var(--color-surface);
-  padding: var(--space-md); /* Zmniejszony padding */
-  text-align: center;
-  margin: var(--space-lg) 0; /* Używamy nowych zmiennych */
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-}
+/* .about-promo { */
+  /* background-color: var(--color-surface); */
+  /* padding: var(--space-md); /* Zmniejszony padding */ */
+  /* text-align: center; */
+  /* margin: var(--space-lg) 0; /* Używamy nowych zmiennych */ */
+  /* border-radius: 8px; */
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08); */
+/* } */
 
-.about-promo h2 {
-  margin-bottom: var(--space-sm);
-}
+/* .about-promo h2 { */
+  /* margin-bottom: var(--space-sm); */
+/* } */
 
-.about-promo p {
-  font-size: 1em; /* Lekko zmniejszony rozmiar tekstu */
-  margin-bottom: var(--space-md);
-  color: var(--color-text-light);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
+/* .about-promo p { */
+  /* font-size: 1em; /* Lekko zmniejszony rozmiar tekstu */ */
+  /* margin-bottom: var(--space-md); */
+  /* color: var(--color-text-light); */
+  /* max-width: 700px; */
+  /* margin-left: auto; */
+  /* margin-right: auto; */
+/* } */
 
 /* --- Stopka Strony --- */
-footer {
-  background-color: var(--color-text);
-  color: var(--color-background);
-  padding: var(--space-md) var(--space-sm); /* Zmniejszony padding */
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: flex-start;
-}
+/* footer { */
+  /* background-color: var(--color-text); */
+  /* color: var(--color-background); */
+  /* padding: var(--space-md) var(--space-sm); /* Zmniejszony padding */ */
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  /* justify-content: space-around; */
+  /* align-items: flex-start; */
+/* } */
 
-.footer-links ul {
-  list-style: none;
-  padding: 0;
-  margin-bottom: var(--space-md); /* Używamy nowej zmiennej */
+/* .footer-links ul { */
+  /* list-style: none; */
+  /* padding: 0; */
+  /* margin-bottom: var(--space-md); /* Używamy nowej zmiennej */ */
   /* Możesz dodać text-align: center; jeśli chcesz wyśrodkować na małych ekranach */
-  width: 100%; /* Zapewnij, że zajmuje całą szerokość, jeśli zawija */
-  text-align: center;
-}
+  /* width: 100%; /* Zapewnij, że zajmuje całą szerokość, jeśli zawija */ */
+  /* text-align: center; */
+/* } */
 
-.footer-links li {
-  margin-bottom: var(--space-xs);
-}
+/* .footer-links li { */
+  /* margin-bottom: var(--space-xs); */
+/* } */
 
-.footer-links a,
-.social-media a {
-  color: var(--color-background);
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
+/* .footer-links a, */
+/* .social-media a { */
+  /* color: var(--color-background); */
+  /* text-decoration: none; */
+  /* transition: color 0.3s ease; */
+/* } */
 
-.footer-links a:hover,
-.social-media a:hover {
-  color: var(--color-primary);
-  text-decoration: underline;
-}
+/* .footer-links a:hover, */
+/* .social-media a:hover { */
+  /* color: var(--color-primary); */
+  /* text-decoration: underline; */
+/* } */
 
-.social-media {
-  text-align: center; /* Centruj na mniejszych ekranach */
-  width: 100%; /* Zapewnij, że zajmuje całą szerokość, jeśli zawija */
-  margin-top: var(--space-md); /* Dodaj odstęp od linków jeśli zawija */
-}
+/* .social-media { */
+  /* text-align: center; /* Centruj na mniejszych ekranach */ */
+  /* width: 100%; /* Zapewnij, że zajmuje całą szerokość, jeśli zawija */ */
+  /* margin-top: var(--space-md); /* Dodaj odstęp od linków jeśli zawija */ */
+/* } */
 
-.social-media p {
-  margin-bottom: var(--space-sm);
-  font-weight: bold;
-}
+/* .social-media p { */
+  /* margin-bottom: var(--space-sm); */
+  /* font-weight: bold; */
+/* } */
 
-.social-media a {
-  display: inline-block;
-  margin: 0 var(--space-xs); /* Zmniejszone marginesy między ikonami */
+/* .social-media a { */
+  /* display: inline-block; */
+  /* margin: 0 var(--space-xs); /* Zmniejszone marginesy między ikonami */ */
   /* Styl ikon SVG/FontAwesome - dostosuj */
-  font-size: 1.3em; /* Lekko zmniejszony rozmiar ikon */
-}
+  /* font-size: 1.3em; /* Lekko zmniejszony rozmiar ikon */ */
+/* } */
 
-.social-media img {
-  width: 40px; /* Dopasuj rozmiar ikon SVG */
-  height: 40px;
-  margin: 0 var(--space-xs);
-}
+/* .social-media img { */
+  /* width: 40px; /* Dopasuj rozmiar ikon SVG */ */
+  /* height: 40px; */
+  /* margin: 0 var(--space-xs); */
+/* } */
 
-.copyright {
-  width: 100%;
-  text-align: center;
-  margin-top: var(--space-lg); /* Używamy nowej zmiennej */
-  font-size: 0.8em; /* Lekko zmniejszona czcionka */
-  color: var(--color-text-light);
-}
+/* .copyright { */
+  /* width: 100%; */
+  /* text-align: center; */
+  /* margin-top: var(--space-lg); /* Używamy nowej zmiennej */ */
+  /* font-size: 0.8em; /* Lekko zmniejszona czcionka */ */
+  /* color: var(--color-text-light); */
+/* } */
 
 /* --- Responsywność (Media Queries) --- */
 
-/* Brak zmian w media queries, ponieważ domyślne style
-   zostały dostosowane dla ekranów < 768px, w tym 320px */
+/* /* Brak zmian w media queries, ponieważ domyślne style */
+   /* zostały dostosowane dla ekranów < 768px, w tym 320px */ */
 
 /* Dla tabletów i większych (od 768px) */
-@media (min-width: 768px) {
-  header {
-    padding: var(--space-sm) var(--space-xl);
-  }
+/* @media (min-width: 768px) { */
+  /* header { */
+    /* padding: var(--space-sm) var(--space-xl); */
+  /* } */
 
-  /* Przywracamy domyślne zmienne odstępów dla większych ekranów
-     lub definiujemy je w tej media query */
-  :root {
-    --space-xs: 8px;
-    --space-sm: 16px;
-    --space-md: 24px;
-    --space-lg: 32px;
-    --space-xl: 48px;
-    --nav-padding-horizontal: 16px;
-  }
+  /* /* Przywracamy domyślne zmienne odstępów dla większych ekranów */
+     /* lub definiujemy je w tej media query */ */
+  /* :root { */
+    /* --space-xs: 8px; */
+    /* --space-sm: 16px; */
+    /* --space-md: 24px; */
+    /* --space-lg: 32px; */
+    /* --space-xl: 48px; */
+    /* --nav-padding-horizontal: 16px; */
+  /* } */
 
-  body {
-    padding-top: 80px; /* Przywróć większy padding jeśli nagłówek jest wyższy */
-  }
+  /* body { */
+    /* padding-top: 80px; /* Przywróć większy padding jeśli nagłówek jest wyższy */ */
+  /* } */
 
-  .logo-title img {
-    width: 80px;
-    height: 50px;
-    margin-right: var(--space-sm);
-  }
+  /* .logo-title img { */
+    /* width: 80px; */
+    /* height: 50px; */
+    /* margin-right: var(--space-sm); */
+  /* } */
 
-  .logo-title a {
-    gap: 0.5rem;
-  }
+  /* .logo-title a { */
+    /* gap: 0.5rem; */
+  /* } */
 
-  .search-bar {
-    margin: 0 var(--space-md);
-  }
+  /* .search-bar { */
+    /* margin: 0 var(--space-md); */
+  /* } */
 
-  .user-cart-icons a {
-    margin-left: var(--space-md);
-    font-size: 1.4em;
-  }
-  .user-cart-icons img {
-    width: 32px;
-    height: 32px;
-    margin-right: var(--space-sm); /* Przywróć margines jeśli potrzebny */
-  }
-  .user-cart-icons .cart-count {
-    top: -8px;
-    right: -8px;
-    font-size: 0.7em;
-    padding: 2px 6px;
-    min-width: 20px;
-  }
+  /* .user-cart-icons a { */
+    /* margin-left: var(--space-md); */
+    /* font-size: 1.4em; */
+  /* } */
+  /* .user-cart-icons img { */
+    /* width: 32px; */
+    /* height: 32px; */
+    /* margin-right: var(--space-sm); /* Przywróć margines jeśli potrzebny */ */
+  /* } */
+  /* .user-cart-icons .cart-count { */
+    /* top: -8px; */
+    /* right: -8px; */
+    /* font-size: 0.7em; */
+    /* padding: 2px 6px; */
+    /* min-width: 20px; */
+  /* } */
 
-  nav ul {
-    padding: var(--nav-padding-vertical) var(--space-xl); /* Dostosuj do nowej zmiennej */
-  }
-  nav li {
-    margin: 0 var(--space-sm);
-    margin-bottom: 0; /* Usuń dolny margines */
-  }
-  nav a {
-    padding: var(--nav-padding-vertical) 0; /* Usuń poziomy padding w linku */
-  }
+  /* nav ul { */
+    /* padding: var(--nav-padding-vertical) var(--space-xl); /* Dostosuj do nowej zmiennej */ */
+  /* } */
+  /* nav li { */
+    /* margin: 0 var(--space-sm); */
+    /* margin-bottom: 0; /* Usuń dolny margines */ */
+  /* } */
+  /* nav a { */
+    /* padding: var(--nav-padding-vertical) 0; /* Usuń poziomy padding w linku */ */
+  /* } */
 
-  main {
-    padding: 0 var(--space-xl); /* Dostosuj do nowej zmiennej */
-  }
+  /* main { */
+    /* padding: 0 var(--space-xl); /* Dostosuj do nowej zmiennej */ */
+  /* } */
 
-  main h2 {
-    font-size: 2em; /* Przywróć większy rozmiar */
-  }
+  /* main h2 { */
+    /* font-size: 2em; /* Przywróć większy rozmiar */ */
+  /* } */
 
-  .hero-section {
-    height: 500px; /* Większa wysokość na tabletach */
-    margin-bottom: var(--space-xl); /* Dostosuj do nowej zmiennej */
-  }
-  .hero-text {
-    padding: var(--space-md);
-  }
+  /* .hero-section { */
+    /* height: 500px; /* Większa wysokość na tabletach */ */
+    /* margin-bottom: var(--space-xl); /* Dostosuj do nowej zmiennej */ */
+  /* } */
+  /* .hero-text { */
+    /* padding: var(--space-md); */
+  /* } */
 
-  .hero-text h2 {
-    font-size: 2.5em; /* Przywróć większy rozmiar */
-    margin-bottom: var(--space-sm);
-  }
-  .hero-text p {
-    font-size: 1.2em;
-    margin-bottom: var(--space-lg);
-  }
+  /* .hero-text h2 { */
+    /* font-size: 2.5em; /* Przywróć większy rozmiar */ */
+    /* margin-bottom: var(--space-sm); */
+  /* } */
+  /* .hero-text p { */
+    /* font-size: 1.2em; */
+    /* margin-bottom: var(--space-lg); */
+  /* } */
 
-  .product-grid {
+  /* .product-grid { */
     /* 3 kolumny na tabletach */
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: var(--space-md); /* Dostosuj do nowej zmiennej */
-    margin-bottom: var(--space-md);
-  }
-  .product-item img {
-    height: 300px; /* Przywróć większą wysokość obrazka */
-  }
-  .product-item h3 {
-    font-size: 1.2em;
-    margin: var(--space-sm);
-  }
-  .product-item .product-price {
-    font-size: 1.1em;
-    margin: 0 var(--space-sm) var(--space-sm);
-  }
+    /* grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); */
+    /* gap: var(--space-md); /* Dostosuj do nowej zmiennej */ */
+    /* margin-bottom: var(--space-md); */
+  /* } */
+  /* .product-item img { */
+    /* height: 300px; /* Przywróć większą wysokość obrazka */ */
+  /* } */
+  /* .product-item h3 { */
+    /* font-size: 1.2em; */
+    /* margin: var(--space-sm); */
+  /* } */
+  /* .product-item .product-price { */
+    /* font-size: 1.1em; */
+    /* margin: 0 var(--space-sm) var(--space-sm); */
+  /* } */
 
-  .about-promo {
-    padding: var(--space-xl); /* Przywróć większy padding */
-    margin: var(--space-lg) 0; /* Dostosuj do nowej zmiennej */
-  }
-  .about-promo p {
-    font-size: 1.1em;
-    margin-bottom: var(--space-md);
-  }
+  /* .about-promo { */
+    /* padding: var(--space-xl); /* Przywróć większy padding */ */
+    /* margin: var(--space-lg) 0; /* Dostosuj do nowej zmiennej */ */
+  /* } */
+  /* .about-promo p { */
+    /* font-size: 1.1em; */
+    /* margin-bottom: var(--space-md); */
+  /* } */
 
-  footer {
-    padding: var(--space-xl); /* Przywróć większy padding */
-    justify-content: space-around;
-    align-items: flex-start; /* Wyrównaj do góry */
-  }
-  .footer-links ul {
-    margin-bottom: 0;
-    width: auto; /* Pozwól zająć potrzebną szerokość */
-    text-align: left; /* Wyrównaj do lewej */
-  }
+  /* footer { */
+    /* padding: var(--space-xl); /* Przywróć większy padding */ */
+    /* justify-content: space-around; */
+    /* align-items: flex-start; /* Wyrównaj do góry */ */
+  /* } */
+  /* .footer-links ul { */
+    /* margin-bottom: 0; */
+    /* width: auto; /* Pozwól zająć potrzebną szerokość */ */
+    /* text-align: left; /* Wyrównaj do lewej */ */
+  /* } */
 
-  .social-media {
-    text-align: left; /* Wyrównaj do lewej na większych ekranach */
-    width: auto; /* Pozwól zająć potrzebną szerokość */
-    margin-top: 0; /* Usuń górny margines */
-  }
-  .social-media p {
-    margin-bottom: var(--space-sm);
-  }
-  .social-media a {
-    margin: 0 var(--space-xs);
-    font-size: 1.5em;
-  }
-  .social-media img {
-    width: 64px;
-    height: 64px;
-    margin: 0 var(--space-xs);
-  }
+  /* .social-media { */
+    /* text-align: left; /* Wyrównaj do lewej na większych ekranach */ */
+    /* width: auto; /* Pozwól zająć potrzebną szerokość */ */
+    /* margin-top: 0; /* Usuń górny margines */ */
+  /* } */
+  /* .social-media p { */
+    /* margin-bottom: var(--space-sm); */
+  /* } */
+  /* .social-media a { */
+    /* margin: 0 var(--space-xs); */
+    /* font-size: 1.5em; */
+  /* } */
+  /* .social-media img { */
+    /* width: 64px; */
+    /* height: 64px; */
+    /* margin: 0 var(--space-xs); */
+  /* } */
 
-  .copyright {
-    margin-top: var(--space-xl); /* Dostosuj do nowej zmiennej */
-    font-size: 0.9em;
-  }
-}
+  /* .copyright { */
+    /* margin-top: var(--space-xl); /* Dostosuj do nowej zmiennej */ */
+    /* font-size: 0.9em; */
+  /* } */
+/* } */
 
 /* Dla desktopów i większych (od 1024px) */
-@media (min-width: 1024px) {
+/* @media (min-width: 1024px) { */
   /* Możesz dodatkowo zwiększyć zmienne odstępów dla jeszcze większych ekranów */
-  :root {
-    --space-xs: 8px;
-    --space-sm: 16px;
-    --space-md: 24px;
-    --space-lg: 32px;
-    --space-xl: 48px;
-  }
+  /* :root { */
+    /* --space-xs: 8px; */
+    /* --space-sm: 16px; */
+    /* --space-md: 24px; */
+    /* --space-lg: 32px; */
+    /* --space-xl: 48px; */
+  /* } */
 
-  header {
-    padding: var(--space-md) var(--space-xl); /* Trochę większy padding */
-  }
+  /* header { */
+    /* padding: var(--space-md) var(--space-xl); /* Trochę większy padding */ */
+  /* } */
 
-  body {
-    padding-top: 90px; /* Dostosuj padding top do nowej wysokości nagłówka */
-  }
+  /* body { */
+    /* padding-top: 90px; /* Dostosuj padding top do nowej wysokości nagłówka */ */
+  /* } */
 
-  nav ul {
-    padding: var(--space-md) var(--space-xl);
-  }
+  /* nav ul { */
+    /* padding: var(--space-md) var(--space-xl); */
+  /* } */
 
-  main {
-    padding: 0 var(--space-xl);
-  }
+  /* main { */
+    /* padding: 0 var(--space-xl); */
+  /* } */
 
-  .hero-section {
-    height: 600px; /* Jeszcze większa wysokość na desktopach */
-  }
+  /* .hero-section { */
+    /* height: 600px; /* Jeszcze większa wysokość na desktopach */ */
+  /* } */
 
-  .hero-text h2 {
-    font-size: 3em; /* Możesz zwiększyć jeszcze bardziej */
-  }
+  /* .hero-text h2 { */
+    /* font-size: 3em; /* Możesz zwiększyć jeszcze bardziej */ */
+  /* } */
 
-  .product-grid {
+  /* .product-grid { */
     /* 4 kolumny na desktopach */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
+    /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+  /* } */
 
-  footer {
-    padding: var(--space-xl);
-    justify-content: space-between; /* Większe rozproszenie sekcji w stopce */
-  }
+  /* footer { */
+    /* padding: var(--space-xl); */
+    /* justify-content: space-between; /* Większe rozproszenie sekcji w stopce */ */
+  /* } */
 
-  .footer-links ul {
-    display: flex; /* Linki w stopce w rzędzie */
-    width: auto;
-    text-align: left;
-  }
+  /* .footer-links ul { */
+    /* display: flex; /* Linki w stopce w rzędzie */ */
+    /* width: auto; */
+    /* text-align: left; */
+  /* } */
 
-  .footer-links li {
-    margin-right: var(--space-md); /* Odstęp między linkami w stopce */
-    margin-bottom: 0;
-  }
+  /* .footer-links li { */
+    /* margin-right: var(--space-md); /* Odstęp między linkami w stopce */ */
+    /* margin-bottom: 0; */
+  /* } */
 
-  .social-media {
-    text-align: right; /* Wyrównaj do prawej */
-    width: auto;
-  }
-}
+  /* .social-media { */
+    /* text-align: right; /* Wyrównaj do prawej */ */
+    /* width: auto; */
+  /* } */
+/* } */
 
 /* Dla bardzo dużych ekranów (opcjonalnie) */
-@media (min-width: 1400px) {
-  main {
-    max-width: 1400px; /* Zwiększ maksymalną szerokość kontenera */
-  }
+/* @media (min-width: 1400px) { */
+  /* main { */
+    /* max-width: 1400px; /* Zwiększ maksymalną szerokość kontenera */ */
+  /* } */
 
-  .product-grid {
+  /* .product-grid { */
     /* 5 kolumn na bardzo dużych ekranach, jeśli minmax na to pozwoli */
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  }
-}
+    /* grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); */
+  /* } */
+/* } */
 
 /* --- Dodatkowe drobne poprawki --- */
 /* Upewnij się, że te globalne style są poniżej zmiennych */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-  line-height: 1.2;
-}
+/* h1, */
+/* h2, */
+/* h3, */
+/* h4, */
+/* h5, */
+/* h6 { */
+  /* margin-top: 0; */
+  /* margin-bottom: 0.5em; */
+  /* line-height: 1.2; */
+/* } */
 
-p {
-  margin-bottom: 1em;
-}
+/* p { */
+  /* margin-bottom: 1em; */
+/* } */
 
-img {
-  max-width: 100%;
-  height: auto;
-}
+/* img { */
+  /* max-width: 100%; */
+  /* height: auto; */
+/* } */

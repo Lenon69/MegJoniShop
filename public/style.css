@@ -47,7 +47,12 @@ body {
   line-height: var(--line-height-base);
   color: var(--color-text);
   background-color: var(--color-background);
-  padding-top: 70px; /* Dostosuj padding-top do potencjalnie niższej wysokości nagłówka na małych ekranach */
+  /* --- Zmienione dla "lepkiej" stopki --- */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Minimalna wysokość równa wysokości ekranu */
+  /* Dodaj padding-top z powrotem do body, aby zrobić miejsce na fixed header */
+  padding-top: 70px; /* Dostosuj do wysokości fixed header na małych ekranach */
 }
 
 /* --- Udogodnienia Dostepności --- */
@@ -113,12 +118,11 @@ header {
   width: 100%;
   background-color: var(--color-surface);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-  padding: 8px var(--space-sm); /* Dodany poziomy padding dla małych ekranów */
-  display: flex; /* Używamy flexbox do rozmieszczenia elementów */
-  justify-content: space-between; /* Rozsuwa elementy na boki */
-  align-items: center; /* Centruje elementy w pionie */
-  z-index: 1000; /* Upewnia się, że nagłówek jest na wierzchu */
-  /* Możesz rozważyć flex-wrap: wrap; jeśli elementy nagłówka się nie mieszczą */
+  padding: 8px var(--space-sm);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
 }
 
 header > div {
@@ -266,9 +270,17 @@ nav a:focus {
 
 /* --- Główna Zawartość --- */
 main {
-  padding: 0 var(--space-sm); /* Zmniejszony poziomy padding */
+  /* --- Zmienione dla "lepkiej" stopki --- */
+  flex-grow: 1; /* Pozwala main zająć dostępną przestrzeń pionową w body (po nav i przed footerem) */
+  /* Usuń padding-top, który przenieśliśmy z powrotem do body */
+  padding-top: 0; /* Ta linia została zmieniona */
+  /* --- Pozostałe style bez zmian --- */
+  padding: 0 var(--space-sm); /* Zachowaj poziomy padding */
   max-width: 1200px;
-  margin: var(--space-md) auto; /* Używamy nowych, mniejszych zmiennych */
+  margin-left: auto; /* Zachowaj centrowanie poziome */
+  margin-right: auto; /* Zachowaj centrowanie poziome */
+  margin-top: var(--space-md); /* Zachowaj górny margines (od nav) */
+  margin-bottom: var(--space-md); /* Zachowaj dolny margines (do footer) */
 }
 
 main h2 {
@@ -568,7 +580,7 @@ footer {
   }
 
   main {
-    padding: 0 var(--space-xl); /* Dostosuj do nowej zmiennej */
+    padding-top: 0;
   }
 
   main h2 {
@@ -678,7 +690,7 @@ footer {
   }
 
   main {
-    padding: 0 var(--space-xl);
+    padding: 0;
   }
 
   .hero-section {

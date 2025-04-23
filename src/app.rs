@@ -61,7 +61,7 @@ pub fn App() -> impl IntoView {
                     <Route path=StaticSegment("category/woman") view=WomanPage/>
                     <Route path=StaticSegment("category/man") view=MenPage/>
                     <Route path=StaticSegment("new-arrivals") view=NewsPage/>
-                    <Route path=StaticSegment("sale") view=WyprzedazPage/>
+                    <Route path=StaticSegment("sale") view=SalePage/>
                 </Routes>
             </main>
 
@@ -79,8 +79,7 @@ fn Header() -> impl IntoView {
             <img
               src="/megjoni-big.png"
               alt="Nazwa Sklepu Meg Joni / Logo"
-              width="80"
-              height="50"
+              height="100%"
             />
           </a>
         </div>
@@ -197,13 +196,13 @@ fn Footer() -> impl IntoView {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Facebook">
-                    <img src="/facebook.svg" width="64" height="64"/>
+                    <img src="/facebook.svg" width="48" height="48"/>
                 </a>
                 <a href="https://www.instagram.com/Meg.joni"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="Instagram">
-                    <img src="/instagram.svg" width="64" height="64"/>
+                    <img src="/instagram.svg" width="48" height="48"/>
                 </a>
             </div>
 
@@ -235,7 +234,7 @@ pub fn AboutPage() -> impl IntoView {
                 <p>
                     Dołącz do naszej społeczności miłośników second handu i odkryj swój niepowtarzalny styl!
                 </p>
-                 <a href="/shop">
+                 <a href="/category/woman">
                     <button>Zobacz nasze produkty</button>
                  </a>
             </section>
@@ -386,7 +385,7 @@ pub fn NewsPage() -> impl IntoView {
 }
 
 #[component]
-pub fn WyprzedazPage() -> impl IntoView {
+pub fn SalePage() -> impl IntoView {
     view! {
         <main>
             <section>
