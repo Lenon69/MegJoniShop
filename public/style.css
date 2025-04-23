@@ -1,0 +1,616 @@
+/* style.css 
+   Profesjonalne style dla sklepu z odzieżą używaną 
+*/
+
+/* --- Podstawowy Reset i Zmienne CSS --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  /* Paleta Kolorów */
+  --color-primary: #4a90e2; /* Główny kolor akcentu (np. przyciski) */
+  --color-primary-dark: #357bd8; /* Ciemniejszy odcień primary */
+  --color-secondary: #50e3c2; /* Drugi kolor akcentu */
+  --color-text: #333; /* Kolor tekstu głównego */
+  --color-text-light: #666; /* Kolor tekstu pomocniczego */
+  --color-background: #f8f8f8; /* Kolor tła strony */
+  --color-surface: #fff; /* Kolor tła elementów (kart, nagłówka, stopki) */
+  --color-border: #ddd; /* Kolor obramowań */
+  --color-error: #e74c3c; /* Kolor błędów */
+
+  --nav-padding-vertical: 6px;
+  --nav-padding-horizontal: 16px;
+
+  /* Typography */
+  --font-family-base:
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  --font-size-base: 16px;
+  --line-height-base: 1.6;
+
+  /* Spacing (użyj skali dla spójności) */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 32px;
+  --space-xl: 48px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  padding-top: 80px; /* Odpowiada wysokości nagłówka, aby treść nie chowała się pod nim */
+}
+
+/* --- Udogodnienia Dostepności --- */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* --- Globalne Style dla Linków i Przycisków --- */
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover,
+a:focus {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+}
+
+button,
+.btn {
+  display: inline-block;
+  padding: var(--space-sm) var(--space-md);
+  font-size: var(--font-size-base);
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    opacity 0.3s ease;
+  background-color: var(--color-primary);
+  color: var(--color-surface);
+}
+
+button:hover,
+button:focus,
+.btn:hover,
+.btn:focus {
+  background-color: var(--color-primary-dark);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* --- Header (Nagłówek Strony) --- */
+header {
+  position: fixed; /* Nagłówek przyklejony do góry */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--color-surface);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 8px 0;
+  display: flex; /* Używamy flexbox do rozmieszczenia elementów */
+  justify-content: space-between; /* Rozsuwa elementy na boki */
+  align-items: center; /* Centruje elementy w pionie */
+  z-index: 1000; /* Upewnia się, że nagłówek jest na wierzchu */
+}
+
+header > div {
+  display: flex;
+  align-items: center;
+}
+
+header a {
+  color: var(--color-text);
+  text-decoration: none;
+}
+
+header a:hover {
+  color: var(--color-primary);
+  text-decoration: none;
+}
+
+header img {
+  display: block;
+  margin-right: var(--space-sm);
+}
+
+header h1 {
+  font-size: 1.5em; /* Większy rozmiar dla tytułu/logo */
+  font-weight: bold;
+}
+
+/* Wyszukiwarka w nagłówku */
+.search-bar {
+  flex-grow: 1; /* Pozwala wyszukiwarce zająć dostępną przestrzeń */
+  margin: 0 var(--space-md);
+  max-width: 400px; /* Ogranicz maksymalną szerokość */
+}
+
+.search-bar form {
+  display: flex;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.search-bar input[type="text"] {
+  flex-grow: 1;
+  padding: var(--space-xs) var(--space-sm);
+  border: none;
+  outline: none;
+  font-size: var(--font-size-base);
+}
+
+.search-bar button {
+  padding: var(--space-xs) var(--space-sm);
+  background-color: var(--color-primary-dark);
+  color: var(--color-surface);
+  border: none;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #2a6bb0; /* Ciemniejszy odcień */
+}
+
+/* Ikonki użytkownika i koszyka */
+.user-cart-icons {
+  display: flex;
+  align-items: center;
+}
+
+.user-cart-icons a {
+  margin-left: var(--space-md);
+  position: relative; /* Dla pozycjonowania licznika koszyka */
+  /* Styl ikon SVG/FontAwesome - dostosuj w zależności od użytych ikon */
+  font-size: 1.4em;
+}
+
+.user-cart-icons .cart-count {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: var(--color-error); /* Czerwone kółko */
+  color: var(--color-surface);
+  font-size: 0.7em;
+  font-weight: bold;
+  border-radius: 50%;
+  padding: 2px 6px;
+  min-width: 20px;
+  text-align: center;
+  line-height: 1;
+  border: 1px solid var(--color-surface); /* Biała ramka */
+}
+
+/* --- Nawigacja Główna --- */
+nav {
+  background-color: var(--color-surface);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  margin-bottom: var(--space-lg);
+}
+
+nav ul {
+  list-style: none;
+  display: flex; /* Elementy menu w rzędzie */
+  justify-content: center; /* Centruje elementy menu */
+  padding: var(--nav-padding-vertical) var(--nav-padding-horizontal);
+  flex-wrap: wrap; /* Pozwala menu zawijać się na mniejszych ekranach */
+}
+
+nav li {
+  margin: 0 var(--space-sm);
+}
+
+nav a {
+  color: var(--color-text-light);
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: var(--nav-padding-vertical) 0;
+  border-bottom: 2px solid transparent; /* Podkreślenie w hoverze */
+  transition:
+    color 0.3s ease,
+    border-bottom-color 0.3s ease;
+}
+
+nav a:hover,
+nav a:focus {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+  text-decoration: none;
+}
+
+/* --- Główna Zawartość --- */
+main {
+  padding: 0 var(--space-md); /* Wewnętrzny odstęp po bokach */
+  max-width: 1200px; /* Ograniczenie szerokości treści */
+  margin: var(--space-md) auto; /* Centrowanie kontenera main */
+}
+
+main h2 {
+  font-size: 2em;
+  margin-bottom: var(--space-md);
+  text-align: center;
+  color: var(--color-text);
+}
+
+/* Sekcja Hero */
+.hero-section {
+  position: relative;
+  width: 100%;
+  height: 400px; /* Dostosuj wysokość */
+  overflow: hidden;
+  margin-bottom: var(--space-lg);
+  border-radius: 8px;
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Obrazek pokrywa cały kontener */
+  display: block;
+}
+
+.hero-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.4); /* Lekkie overlay */
+  color: var(--color-surface);
+  padding: var(--space-md);
+}
+
+.hero-text h2 {
+  font-size: 2.5em;
+  margin-bottom: var(--space-sm);
+  color: var(--color-surface); /* Kolor tekstu na tle overlay */
+}
+
+.hero-text p {
+  font-size: 1.2em;
+  margin-bottom: var(--space-lg);
+  max-width: 600px;
+}
+
+.hero-text .btn-shop-now {
+  background-color: var(--color-secondary);
+  color: var(--color-text); /* Kontrastowy tekst */
+}
+
+.hero-text .btn-shop-now:hover {
+  background-color: #3cb39f; /* Ciemniejszy odcień secondary */
+}
+
+/* Sekcja Produktów (Siatka) */
+.product-grid {
+  display: grid;
+  /* Domyślnie 2 kolumny na mniejszych ekranach, na większych więcej */
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: var(--space-md); /* Odstępy między elementami siatki */
+  margin-bottom: var(--space-md);
+}
+
+.product-item {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden; /* Aby obrazek zaokrąglił rogi z kontenerem */
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex; /* Flexbox wewnątrz dla układu treści */
+  flex-direction: column;
+}
+
+.product-item:hover {
+  transform: translateY(-5px); /* Lekkie przesunięcie w górę */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1); /* Subtelny cień */
+}
+
+.product-item a {
+  text-decoration: none;
+  color: inherit; /* Dziedzicz kolor tekstu z rodzica */
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Link obejmuje cały element */
+}
+
+.product-item figure {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: hidden; /* Dla efektu zoomu na obrazku */
+}
+
+.product-item img {
+  width: 100%;
+  height: 300px; /* Stała wysokość obrazka produktu */
+  object-fit: cover; /* Kadrowanie obrazka */
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.product-item:hover img {
+  transform: scale(1.05); /* Lekki zoom na obrazku w hoverze */
+}
+
+.product-item h3 {
+  font-size: 1.2em;
+  margin: var(--space-sm);
+  flex-grow: 1; /* Tytuł zajmuje dostępną przestrzeń */
+}
+
+.product-item .product-price {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--color-primary-dark);
+  margin: 0 var(--space-sm) var(--space-sm);
+  text-align: right; /* Cena wyrównana do prawej */
+}
+
+.view-all-link {
+  text-align: center;
+  margin-top: var(--space-md);
+}
+
+/* Sekcja "Dlaczego Second Hand" */
+.about-promo {
+  background-color: var(--color-surface);
+  padding: var(--space-xl);
+  text-align: center;
+  margin: var(--space-lg) 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.about-promo h2 {
+  margin-bottom: var(--space-sm);
+}
+
+.about-promo p {
+  font-size: 1.1em;
+  margin-bottom: var(--space-md);
+  color: var(--color-text-light);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* --- Stopka Strony --- */
+footer {
+  background-color: var(--color-text); /* Ciemne tło stopki */
+  color: var(--color-background); /* Jasny tekst na ciemnym tle */
+  padding: var(--space-xl) var(--space-md);
+  display: flex;
+  flex-wrap: wrap; /* Stopka zawija się na mniejszych ekranach */
+  justify-content: space-around; /* Rozsuwa sekcje stopki */
+  align-items: flex-start;
+}
+
+.footer-links ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: var(
+    --space-md
+  ); /* Odstęp jeśli zawinie się pod social media */
+}
+
+.footer-links li {
+  margin-bottom: var(--space-xs);
+}
+
+.footer-links a,
+.social-media a {
+  color: var(--color-background); /* Jasne linki */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover,
+.social-media a:hover {
+  color: var(--color-primary); /* Kolor akcentu na hover */
+  text-decoration: underline;
+}
+
+.social-media {
+  text-align: center; /* Centruj na mniejszych ekranach */
+}
+
+.social-media p {
+  margin-bottom: var(--space-sm);
+  font-weight: bold;
+}
+
+.social-media a {
+  display: inline-block;
+  margin: 0 var(--space-xs);
+  /* Styl ikon SVG/FontAwesome - dostosuj */
+  font-size: 1.5em;
+}
+
+.copyright {
+  width: 100%; /* Zawsze zajmuje całą szerokość */
+  text-align: center;
+  margin-top: var(--space-lg);
+  font-size: 0.9em;
+  color: var(--color-text-light); /* Nieco ciemniejszy tekst praw autorskich */
+}
+
+/* --- Responsywność (Media Queries) --- */
+
+/* Dla tabletów i większych (od 768px) */
+@media (min-width: 768px) {
+  header {
+    padding: var(--space-sm) var(--space-xl);
+  }
+
+  nav ul {
+    padding: var(--space-sm) var(--space-xl);
+  }
+
+  main {
+    padding: 0 var(--space-xl);
+  }
+
+  .hero-section {
+    height: 500px; /* Większa wysokość na tabletach */
+  }
+
+  .hero-text h2 {
+    font-size: 3em;
+  }
+
+  .product-grid {
+    /* 3 kolumny na tabletach */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+
+  footer {
+    padding: var(--space-xl);
+  }
+
+  .footer-links ul {
+    margin-bottom: 0; /* Usuń margines jeśli nie zawija */
+  }
+
+  .social-media {
+    text-align: left; /* Wyrównaj do lewej na większych ekranach */
+  }
+}
+
+/* Dla desktopów i większych (od 1024px) */
+@media (min-width: 1024px) {
+  header {
+    padding: var(--space-md) var(--space-xl); /* Trochę większy padding */
+  }
+
+  nav ul {
+    padding: var(--space-md) var(--space-xl);
+  }
+
+  body {
+    padding-top: 90px; /* Dostosuj padding top do nowej wysokości nagłówka */
+  }
+
+  main {
+    padding: 0 var(--space-xl);
+  }
+
+  .hero-section {
+    height: 600px; /* Jeszcze większa wysokość na desktopach */
+  }
+
+  .hero-text h2 {
+    font-size: 3.5em;
+  }
+
+  .product-grid {
+    /* 4 kolumny na desktopach */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+
+  footer {
+    padding: var(--space-xl);
+    justify-content: space-between; /* Większe rozproszenie sekcji w stopce */
+  }
+
+  .footer-links ul {
+    display: flex; /* Linki w stopce w rzędzie */
+  }
+
+  .footer-links li {
+    margin-right: var(--space-md); /* Odstęp między linkami w stopce */
+    margin-bottom: 0;
+  }
+
+  .social-media {
+    text-align: right; /* Wyrównaj do prawej */
+  }
+}
+
+/* Dla bardzo dużych ekranów (opcjonalnie) */
+@media (min-width: 1400px) {
+  main {
+    max-width: 1400px; /* Zwiększ maksymalną szerokość kontenera */
+  }
+
+  .product-grid {
+    /* 5 kolumn na bardzo dużych ekranach */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}
+
+/* --- Dodatkowe drobne poprawki --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0.5em; /* Domyślny odstęp pod nagłówkami */
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1em; /* Domyślny odstęp pod paragrafami */
+}
+
+img {
+  max-width: 100%; /* Obrazki nie wyjdą poza kontener */
+  height: auto; /* Zachowaj proporcje */
+}
+
+.logo-title {
+  margin: 0;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center; /* Wyrównuje obrazek i tekst w pionie */
+  gap: 0.5rem; /* Odstęp między logo a tekstem */
+  text-decoration: none;
+}
+
+.logo-title a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.logo-title img {
+  display: block; /* usunięcie dolnego marginesu domyślnego inline obrazka */
+}
